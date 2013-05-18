@@ -1,4 +1,4 @@
- /**
+/**
 * Greek translation for bootstrap-datepicker
 */
 ;(function($){
