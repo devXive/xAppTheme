@@ -7726,11 +7726,11 @@ body.login-layout:before {
 /* custom animated icons */
 .icon-animated-wrench {
   display: inline-block;
-  -moz-animation: wrenching 2.5s 4 ease;
-  -o-animation: wrenching 2.5s 4 ease;
-  -webkit-animation: wrenching 2.5s 4 ease;
-  -ms-animation: wrenching 2.5s 4 ease;
-  animation: wrenching 2.5s 4 ease;
+  -moz-animation: wrenching 2.5s infinite ease;
+  -o-animation: wrenching 2.5s infinite ease;
+  -webkit-animation: wrenching 2.5s infinite ease;
+  -ms-animation: wrenching 2.5s infinite ease;
+  animation: wrenching 2.5s infinite ease;
   
   -moz-transform-origin:90% 35%;
   -webkit-transform-origin:90% 35%;
@@ -7869,10 +7869,10 @@ body.login-layout:before {
 
 .icon-animated-bell {
   display: inline-block;
-  -moz-animation: ringing 2.0s 5 ease 1.0s;
-  -ms-animation: ringing 2.0s 5 ease 1.0s;
-  -webkit-animation: ringing 2.0s 5 ease 1.0s;
-  animation: ringing 2.0s 5 ease 1.0s;
+  -moz-animation: ringing 2.0s infinite ease 1.0s;
+  -ms-animation: ringing 2.0s infinite ease 1.0s;
+  -webkit-animation: ringing 2.0s infinite ease 1.0s;
+  animation: ringing 2.0s infinite ease 1.0s;
   
   -moz-transform-origin:50% 0%;
   -webkit-transform-origin:50% 0%;
@@ -7941,10 +7941,10 @@ body.login-layout:before {
 
 .icon-animated-vertical  {
   display: inline-block;
-  -moz-animation: vertical 2.0s 5 ease 2.0s;
-  -ms-animation: vertical 2.0s 5 ease 2.0s;
-  -webkit-animation: vertical 2.0s 5 ease 2.0s;
-  animation: vertical 2.0s 5 ease 2.0s;
+  -moz-animation: vertical 2.0s infinite ease 2.0s;
+  -ms-animation: vertical 2.0s infinite ease 2.0s;
+  -webkit-animation: vertical 2.0s infinite ease 2.0s;
+  animation: vertical 2.0s infinite ease 2.0s;
 }
 
 @-moz-keyframes vertical {
