@@ -8,42 +8,7 @@
  */
 
 defined('_JEXEC') or die;
-
-// Getting params from template
-$params = JFactory::getApplication()->getTemplate(true)->params;
-
-$app = JFactory::getApplication();
-$doc = JFactory::getDocument();
-$this->language = $doc->language;
-$this->direction = $doc->direction;
-
-// Add JavaScript Frameworks
-JHtml::_('bootstrap.framework');
-
-// Add Stylesheets
-$doc->addStyleSheet('templates/'.$this->template.'/assets/css/bootstrap.min.css');
-$doc->addStyleSheet('templates/'.$this->template.'/assets/css/bootstrap-responsive.min.css');
-$doc->addStyleSheet('templates/'.$this->template.'/assets/css/font-awesome.min.css');
-$doc->addStyleSheet('templates/'.$this->template.'/assets/css/ace.min.css');
-$doc->addStyleSheet('templates/'.$this->template.'/assets/css/ace-responsive.min.css');
-$doc->addStyleSheet('templates/'.$this->template.'/assets/css/ace-skins.min.css');
-
-// Load optional RTL Bootstrap CSS
-JHtml::_('bootstrap.loadCss', false, $this->direction);
-
-// Logo file or site title param
-if ($app->getCfg('offline_image'))
-{
-	$logo = '<img src="' . $app->getCfg('offline_image') . '" alt="' . htmlspecialchars($app->getCfg('sitename')) . '" />';
-}
-elseif ($this->params->get('logoFile'))
-{
-	$logo = '<span class="site-title" title="'. $sitename .'">'. htmlspecialchars($this->params->get('sitetitle')) .'</span>';
-}
-else
-{
-	$logo = '<h1><i class="icon-cloud green"></i> <span class="red">xAppTheme</span> <small class="white">by devXive</small></h1>';
-}
+require_once(__DIR__ . '/loader.php');
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->language; ?>" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>">
@@ -84,7 +49,7 @@ else
 
 <div class="row-fluid">
 	<div class="center">
-		<?php echo $logo; ?>
+		<?php echo $offlinelogo; ?>
 		<h4 class="blue"><?php echo htmlspecialchars($app->getCfg('sitename')); ?></h4>
 	</div>
 </div>

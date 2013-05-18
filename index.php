@@ -8,80 +8,7 @@
  */
 
 defined('_JEXEC') or die;
-
-// Getting params from template
-$params = JFactory::getApplication()->getTemplate(true)->params;
-
-$app = JFactory::getApplication();
-$doc = JFactory::getDocument();
-$this->language = $doc->language;
-$this->direction = $doc->direction;
-
-// Detecting Active Variables
-$option   = $app->input->getCmd('option', '');
-$view     = $app->input->getCmd('view', '');
-$layout   = $app->input->getCmd('layout', '');
-$task     = $app->input->getCmd('task', '');
-$itemid   = $app->input->getCmd('Itemid', '');
-$sitename = $app->getCfg('sitename');
-
-if($task == "edit" || $layout == "form" )
-{
-	$fullWidth = 1;
-}
-else
-{
-	$fullWidth = 0;
-}
-
-// Add JavaScript Frameworks
-JHtml::_('bootstrap.framework');
-
-// Add Stylesheets
-$doc->addStyleSheet('templates/'.$this->template.'/assets/css/bootstrap.min.css');
-$doc->addStyleSheet('templates/'.$this->template.'/assets/css/bootstrap-responsive.min.css');
-$doc->addStyleSheet('templates/'.$this->template.'/assets/css/font-awesome.min.css');
-$doc->addStyleSheet('templates/'.$this->template.'/assets/css/ace.min.css');
-$doc->addStyleSheet('templates/'.$this->template.'/assets/css/ace-responsive.min.css');
-$doc->addStyleSheet('templates/'.$this->template.'/assets/css/ace-skins.min.css');
-
-// Load optional RTL Bootstrap CSS
-JHtml::_('bootstrap.loadCss', false, $this->direction);
-
-// Add current user information
-$user = JFactory::getUser();
-
-// Adjusting content width
-if ($this->countModules('position-7') && $this->countModules('position-8'))
-{
-	$span = "span6";
-}
-elseif ($this->countModules('position-7') && !$this->countModules('position-8'))
-{
-	$span = "span9";
-}
-elseif (!$this->countModules('position-7') && $this->countModules('position-8'))
-{
-	$span = "span9";
-}
-else
-{
-	$span = "span12";
-}
-
-// Logo file or site title param
-if ($this->params->get('logoFile'))
-{
-	$logo = '<img src="'. JURI::root() . $this->params->get('logoFile') .'" alt="'. $sitename .'" />';
-}
-elseif ($this->params->get('sitetitle'))
-{
-	$logo = '<span class="site-title" title="'. $sitename .'">'. htmlspecialchars($this->params->get('sitetitle')) .'</span>';
-}
-else
-{
-	$logo = '<span class="site-title" title="xAppTheme">xAppTheme by devXive</span>';
-}
+require_once(__DIR__ . '/loader.php');
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->language; ?>" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>">
@@ -130,7 +57,7 @@ else
 			  <ul class="nav ace-nav pull-right">
 					<li class="grey">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							<i class="icon-tasks"></i>
+							<i class="icon-tasks icon-animated-wrench icon-only"></i>
 							<span class="badge">4</span>
 						</a>
 						<ul class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-closer">
