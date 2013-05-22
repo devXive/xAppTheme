@@ -44,12 +44,12 @@ require_once(__DIR__ . '/loader.php');
 	. ($layout ? ' layout-' . $layout : ' no-layout')
 	. ($task ? ' task-' . $task : ' no-task')
 	. ($itemid ? ' itemid-' . $itemid : '')
-	. ($params->get('fluidContainer') ? ' fluid' : '');
+	. ($params->get('fixedLayout') ? ' navbar-fixed' : '');
 ?>">
 
 
 
-		<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar navbar-inverse <?php echo ($params->get('fixedLayout') ? ' navbar-fixed-top' : ''); ?>">
 		  <div class="navbar-inner">
 		   <div class="container-fluid">
 
@@ -238,7 +238,7 @@ require_once(__DIR__ . '/loader.php');
 						<a class="user-menu dropdown-toggle" href="#" data-toggle="dropdown">
 							<img alt="Jason's Photo" src="<?php echo $this->baseurl . '/templates/' . $this->template; ?>/assets/avatars/user.jpg" class="nav-user-photo" />
 							<span id="user_info">
-								<small>Hallo,</small> Flo
+								<small>Hallo,</small> <?php echo $user->name; ?>
 							</span>
 							<i class="icon-caret-down"></i>
 						</a>
@@ -260,9 +260,10 @@ require_once(__DIR__ . '/loader.php');
 		</div><!--/.navbar-->
 
 		<div class="container-fluid" id="main-container">
+
 			<a href="#" id="menu-toggler"><span></span></a><!-- menu toggler -->
 
-			<div id="sidebar" class="fixed">
+			<div id="sidebar" class="<?php echo ($params->get('fixedLayout') ? ' fixed' : ''); ?>">
 				
 				<div id="sidebar-shortcuts">
 					<div id="sidebar-shortcuts-large">
@@ -279,105 +280,18 @@ require_once(__DIR__ . '/loader.php');
 					</div>
 				</div><!-- #sidebar-shortcuts -->
 
-				<ul class="nav nav-list">
-					<li>
-					  <a href="/">
-						<i class="icon-dashboard"></i>
-						<span>Dashboard</span>
-					  </a>
-					</li>
-
-					<li>
-					  <a href="#">
-						<i class="icon-group"></i>
-						<span>Patienten</span>
-					  </a>
-					</li>
-
-					<li class="active open">
-					  <a href="#" class="dropdown-toggle" >
-						<i class="icon-desktop"></i>
-						<span>Leitstelle</span>
-						<b class="arrow icon-angle-down"></b>
-					  </a>
-					  <ul class="submenu">
-						<li class="active"><a href="#"><i class="icon-double-angle-right"></i> Auftragsannahme</a></li>
-						<li><a href="#"><i class="icon-double-angle-right"></i> Vermittlung</a></li>
-						<li><a href="#"><i class="icon-double-angle-right"></i> Serien</a></li>
-						<li><a href="#"><i class="icon-double-angle-right"></i> Despatcher</a></li>
-					  </ul>
-					</li>
-
-					<li>
-					  <a href="#" class="dropdown-toggle" >
-						<i class="icon-edit"></i>
-						<span>Verwaltung</span>
-						<b class="arrow icon-angle-down"></b>
-					  </a>
-					  <ul class="submenu">
-						<li><a href="#"><i class="icon-double-angle-right"></i> DB-Abgleich</a></li>
-						<li><a href="#"><i class="icon-double-angle-right"></i> DB-Transfer</a></li>
-						<li><a href="#"><i class="icon-double-angle-right"></i> Preis-Tabellen</a></li>
-						<li><a href="#"><i class="icon-double-angle-right"></i> Rechnungen</a></li>
-					  </ul>
-					</li>
-
-					<li>
-					  <a href="#">
-						<i class="icon-file"></i>
-						<span>XOffice</span>
-					  </a>
-					</li>
-
-					<li>
-					  <a href="#">
-						<i class="icon-calendar"></i>
-						<span>Kalender</span>
-					  </a>
-					</li>
-
-					<li>
-					  <a href="#">
-						<i class="icon-globe"></i>
-						<span>Maps</span>
-					  </a>
-					</li>
-
-					<li>
-					  <a href="#">
-						<i class="icon-envelope"></i>
-						<span>MessageHub</span>
-					  </a>
-					</li>
-
-					<li>
-					  <a href="#" class="dropdown-toggle" >
-						<i class="icon-cogs"></i>
-						<span>Management</span>
-						<b class="arrow icon-angle-down"></b>
-					  </a>
-					  <ul class="submenu">
-						<li><a href="#"><i class="icon-double-angle-right"></i> Benutzerliste</a></li>
-						<li><a href="#"><i class="icon-double-angle-right"></i> POI's</a></li>
-						<li><a href="#"><i class="icon-double-angle-right"></i> Fahrzeuge</a></li>
-						<li><a href="#"><i class="icon-double-angle-right"></i> Schnittstellen</a></li>
-					  </ul>
-					</li>
-				</ul><!--/.nav-list-->
+<!-- #XAP START MODULE -->
+				<jdoc:include type="modules" name="sidebar" />
+<!-- #XAP END MODULE -->
 
 				<div id="sidebar-collapse"><i class="icon-double-angle-left"></i></div>
 
 			</div><!--/#sidebar-->
 
-		
 			<div id="main-content" class="clearfix">
 					
 					<div id="breadcrumbs">
-						<ul class="breadcrumb">
-							<li><i class="icon-home"></i> <a href="#">Home</a><span class="divider"><i class="icon-angle-right"></i></span></li>
-							<li><a href="#">Leitstelle</a> <span class="divider"><i class="icon-angle-right"></i></span></li>
-							<li class="active">Auftragsannahme</li>
-						</ul><!--.breadcrumb-->
+						<jdoc:include type="modules" name="breadcrumbs" /><!--.breadcrumb-->
 
 						<div id="nav-search">
 							<form class="form-search">
@@ -389,27 +303,24 @@ require_once(__DIR__ . '/loader.php');
 						</div><!--#nav-search-->
 					</div><!--#breadcrumbs-->
 
-
-
 					<div id="page-content" class="clearfix">
-						
 
-						<div class="row-fluid">
+<!--
+						<?php if($show_page_heading == 1) { ?>
+							<div class="page-header position-relative">
+								<h1><?php echo $page_title; ?> <small><i class="icon-double-angle-right"></i> <?php echo $page_heading; ?></small></h1>
+							</div><!--/page-header-->
+						<?php } ?>
+
+
+
+						<div id="content" class="row-fluid">
 <!-- PAGE CONTENT BEGINS HERE -->
 
-
-
-
-
-<div id="content" class="<?php echo $span;?>">
-	<!-- Begin Content -->
-	<jdoc:include type="modules" name="position-3" style="xhtml" />
+	<jdoc:include type="modules" name="main-top" style="xhtml" />
 	<jdoc:include type="message" />
 	<jdoc:include type="component" />
-	<jdoc:include type="modules" name="position-2" style="none" />
-	<!-- End Content -->
-</div>
-
+	<jdoc:include type="modules" name="main-bottom" style="none" />
 
 
 <!-- PAGE CONTENT ENDS HERE -->
@@ -418,6 +329,7 @@ require_once(__DIR__ . '/loader.php');
 					</div><!--/#page-content-->
 					  
 
+<!--
 					<div id="ace-settings-container">
 						<div class="btn btn-app btn-mini btn-warning" id="ace-settings-btn">
 							<i class="icon-cog"></i>
@@ -447,39 +359,31 @@ require_once(__DIR__ . '/loader.php');
 			<i class="icon-double-angle-up icon-only"></i>
 		</a>
 
-		<!-- basic scripts -->
+		<!-- scripts-bottom-basic -->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
 		<script type="text/javascript">
 		window.jQuery || document.write("<script src='assets/js/jquery-1.9.1.min.js'>\x3C/script>");
 		</script>
-		
+
 		<script src="<?php echo $this->baseurl . '/templates/' . $this->template; ?>/assets/js/bootstrap.min.js"></script>
 
-		<!-- page specific plugin scripts -->
-		
 		<!-- ace scripts -->
 		<script src="<?php echo $this->baseurl . '/templates/' . $this->template; ?>/assets/js/ace-elements.min.js"></script>
 		<script src="<?php echo $this->baseurl . '/templates/' . $this->template; ?>/assets/js/ace.min.js"></script>
 
-		<!-- inline scripts related to this page -->
 
 
-
-
-
-
-
-
-
+		<!-- xap-scripts-loadBottomBody -->
+		<?php if($session->get('xap_scripts_loadBottomBody')) { ?>
+			<div id="xap_scripts_loadBottomBody"><?php echo $session->get('xap_scripts_loadBottomBody'); ?></div>
+		<?php } ?>
 
 <!-- Navigation -->
 	<jdoc:include type="modules" name="position-1" style="none" />
 
 <!-- Banner -->
 	<jdoc:include type="modules" name="banner" style="xhtml" />
-
-<!-- Nav Sidebar right -->
-	<jdoc:include type="modules" name="position-8" style="xhtml" />
 
 <!-- Nav Sidebar left-->
 	<jdoc:include type="modules" name="position-7" style="well" />
@@ -490,7 +394,7 @@ require_once(__DIR__ . '/loader.php');
 			<hr />
 			<jdoc:include type="modules" name="footer" style="none" />
 		</div>
-		<div class="container right">&copy; <?php echo $sitename; ?> <?php echo date('Y');?></div>
+		<div class="container-fluid" style="text-align: right;">&copy; <?php echo $sitename; ?> <?php echo date('Y');?></div>
 		<jdoc:include type="modules" name="debug" style="none" />
 	</div>
 </body>
