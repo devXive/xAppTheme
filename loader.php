@@ -12,6 +12,7 @@ defined('_JEXEC') or die;
 // Getting language and direction
 $app = JFactory::getApplication();
 $doc = JFactory::getDocument();
+$session = JFactory::getSession();
 $this->language = $doc->language;
 $this->direction = $doc->direction;
 
@@ -25,6 +26,14 @@ $sitename = $app->getCfg('sitename');
 
 // Getting params from template
 $params = $app->getTemplate(true)->params;
+
+// Getting menu info
+$menu = $app->getMenu();
+$menu_id = $menu->getActive()->id;
+$page_title = $menu->getActive()->title;
+$menu_params = $menu->getParams($menu_id);
+$show_page_heading = $menu_params->get('show_page_heading');
+$page_heading = $menu_params->get('page_heading');
 
 // Add JavaScript Frameworks
 JHtml::_('bootstrap.framework');
