@@ -20,9 +20,8 @@
 		<folder>language</folder>
 	</files>
 	<positions>
-		<position>banner</position>
-		<position>debug</position>
-		<position>position-0</position>
+		<position>sidebar</position>
+		<position>breadcrumbs</position>
 		<position>position-1</position>
 		<position>position-2</position>
 		<position>position-3</position>
@@ -38,6 +37,7 @@
 		<position>position-13</position>
 		<position>position-14</position>
 		<position>footer</position>
+		<position>debug</position>
 	</positions>
 	<languages folder="language">
 		<language tag="en-GB">en-GB/en-GB.tpl_xapptheme.ini</language>
@@ -83,15 +83,15 @@
 					label="TPL_XAPPTHEME_FONT_NAME_LABEL"
 					description="TPL_XAPPTHEME_FONT_NAME_DESC" />
 
-				<field name="fluidContainer"
+				<field name="fixedLayout"
 					type="radio"
 					class="btn-group"
 					default="1"
-					label="TPL_XAPPTHEME_FLUID_LABEL"
-					description="TPL_XAPPTHEME_FLUID_DESC"
+					label="TPL_XAPPTHEME_FIXED_LAYOUT_LABEL"
+					description="TPL_XAPPTHEME_FIXED_LAYOUT_LABEL_DESC"
 				>
-					<option value="0">TPL_XAPPTHEME_STATIC</option>
-					<option value="1">TPL_XAPPTHEME_FLUID</option>
+					<option value="0">TPL_XAPPTHEME_FLUID</option>
+					<option value="1">TPL_XAPPTHEME_FIXED</option>
 				</field>
 			</fieldset>
 		</fields>
