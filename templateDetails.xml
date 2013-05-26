@@ -2,8 +2,8 @@
 <!DOCTYPE install PUBLIC "-//Joomla! 2.5//DTD template 1.0//EN" "http://www.joomla.org/xml/dtd/2.5/template-install.dtd">
 <extension version="3.1" type="template" client="site">
 	<name>xAppTheme</name>
-	<version>1.0</version>
-	<creationDate>5/18/2013</creationDate>
+	<version>1.0.1</version>
+	<creationDate>5/25/2013</creationDate>
 	<author>devXive</author>
 	<authorEmail>support@devxive.com</authorEmail>
 	<authorUrl>http://devxive.com</authorUrl>
@@ -14,6 +14,8 @@
 		<filename>error.php</filename>
 		<filename>favicon.ico</filename>
 		<filename>index.php</filename>
+		<filename>loader.php</filename>
+		<filename>offline.php</filename>
 		<filename>templateDetails.xml</filename>
 		<folder>assets</folder>
 		<folder>html</folder>
@@ -22,6 +24,7 @@
 	<positions>
 		<position>sidebar</position>
 		<position>breadcrumbs</position>
+		<position>login</position>
 		<position>position-1</position>
 		<position>position-2</position>
 		<position>position-3</position>
