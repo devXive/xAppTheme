@@ -234,20 +234,8 @@ require_once(__DIR__ . '/loader.php');
 					</li>
 
 
-					<li class="light-blue user-profile">
-						<a class="user-menu dropdown-toggle" href="#" data-toggle="dropdown">
-							<img alt="Jason's Photo" src="<?php echo $this->baseurl . '/templates/' . $this->template; ?>/assets/avatars/user.jpg" class="nav-user-photo" />
-							<span id="user_info">
-								<small>Hallo,</small> <?php echo $user->name; ?>
-							</span>
-							<i class="icon-caret-down"></i>
-						</a>
-						<ul id="user_menu" class="pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-closer">
-							<li><a href="#"><i class="icon-cog"></i> Einstellungen</a></li>
-							<li><a href="#"><i class="icon-user"></i> Profil</a></li>
-							<li class="divider"></li>
-							<li><a href="#"><i class="icon-off"></i> Abmelden</a></li>
-						</ul>
+					<li class="user-profile">
+						<jdoc:include type="modules" name="login" /><!--.login-->
 					</li>
 
 
