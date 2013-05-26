@@ -780,6 +780,7 @@ li [class^="icon-"], .nav-list li [class^="icon-"], li [class*=" icon-"], .nav-l
 }
 #sidebar.menu-min  {
 	width:42px;
+	z-index:14;
 }
 #sidebar.menu-min + #main-content {
 	margin-left:43px;
