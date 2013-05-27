@@ -8,7 +8,7 @@
  */
 
 defined('_JEXEC') or die;
-require_once(__DIR__ . '/loader.php');
+require_once(__DIR__ . '/config.php');
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->language; ?>" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>">
@@ -31,7 +31,7 @@ require_once(__DIR__ . '/loader.php');
 	?>
 	<link href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template; ?>/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
 	<!--[if IE 7]>
-	  <link rel="stylesheet" href="<?php echo $this->baseurl . '/templates/' . $this->template; ?>/assets/css/font-awesome-ie7.min.css" />
+		<link rel="stylesheet" href="<?php echo $this->baseurl . '/templates/' . $this->template; ?>/assets/css/font-awesome-ie7.min.css" />
 	<![endif]-->
 	<!--[if lt IE 9]>
 		<link rel="stylesheet" href="<?php echo $this->baseurl . '/templates/' . $this->template; ?>/assets/css/ace-ie.min.css" />
@@ -46,9 +46,6 @@ require_once(__DIR__ . '/loader.php');
 	. ($itemid ? ' itemid-' . $itemid : '')
 	. ($params->get('fixedLayout') ? ' navbar-fixed' : '');
 ?>">
-
-
-
 		<div class="navbar navbar-inverse <?php echo ($params->get('fixedLayout') ? ' navbar-fixed-top' : ''); ?>">
 		  <div class="navbar-inner">
 		   <div class="container-fluid">
@@ -347,26 +344,6 @@ require_once(__DIR__ . '/loader.php');
 			<i class="icon-double-angle-up icon-only"></i>
 		</a>
 
-		<!-- scripts-bottom-basic -->
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-
-		<script type="text/javascript">
-		window.jQuery || document.write("<script src='assets/js/jquery-1.9.1.min.js'>\x3C/script>");
-		</script>
-
-		<script src="<?php echo $this->baseurl . '/templates/' . $this->template; ?>/assets/js/bootstrap.min.js"></script>
-
-		<!-- ace scripts -->
-		<script src="<?php echo $this->baseurl . '/templates/' . $this->template; ?>/assets/js/ace-elements.min.js"></script>
-		<script src="<?php echo $this->baseurl . '/templates/' . $this->template; ?>/assets/js/ace.min.js"></script>
-
-
-
-		<!-- xap-scripts-loadBottomBody -->
-		<?php if($session->get('xap_scripts_loadBottomBody')) { ?>
-			<div id="xap_scripts_loadBottomBody"><?php echo $session->get('xap_scripts_loadBottomBody'); ?></div>
-		<?php } ?>
-
 <!-- Navigation -->
 	<jdoc:include type="modules" name="position-1" style="none" />
 
@@ -385,5 +362,8 @@ require_once(__DIR__ . '/loader.php');
 		<div class="container-fluid" style="text-align: right;">&copy; <?php echo $sitename; ?> <?php echo date('Y');?></div>
 		<jdoc:include type="modules" name="debug" style="none" />
 	</div>
+	<?php $templateHelper->loadJsBodyBottom(); ?>
+
+
 </body>
 </html>
