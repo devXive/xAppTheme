@@ -362,8 +362,7 @@ require_once(__DIR__ . '/config.php');
 		<div class="container-fluid" style="text-align: right;">&copy; <?php echo $sitename; ?> <?php echo date('Y');?></div>
 		<jdoc:include type="modules" name="debug" style="none" />
 	</div>
+
 	<?php $templateHelper->loadJsBodyBottom(); ?>
-
-
 </body>
 </html>

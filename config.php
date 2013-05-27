@@ -34,6 +34,9 @@ $app = JFactory::getApplication();
 		$menu_params = $menu->getParams($menu_id);
 		$show_page_heading = $menu_params->get('show_page_heading');
 		$page_heading = $menu_params->get('page_heading');
+	} else if($app->input->getCmd('Itemid', '')) {
+		$menu_id = $app->input->getCmd('Itemid', '');
+	} else {
 	}
 
 $doc = JFactory::getDocument(); 
@@ -81,8 +84,8 @@ $templateHelper->addNewCssHead('file', 'ace-responsive.css', 'xapptheme');
 $templateHelper->addNewCssHead('file', 'ace-skins.css', 'xapptheme');
 
 // Added template specific scripts
-$templateHelper->addNewJsBodyBottom('file', 'uncompressed/ace-elements.js', 'xapptheme', '100');
-$templateHelper->addNewJsBodyBottom('file', 'uncompressed/ace.js', 'xapptheme', '101');
+$templateHelper->addNewJsBodyBottom('file', 'uncompressed/ace-elements.js', 'xapptheme', '1000');
+$templateHelper->addNewJsBodyBottom('file', 'uncompressed/ace.js', 'xapptheme', '1001');
 
 // Getting page class suffix and template path
 // $pageclass = $params->get('pageclass_sfx');
@@ -117,6 +120,45 @@ else
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+$templateHelper->addNewJsBodyBottom('file', 'jquery.dataTables.min.js', 'xapptheme', '1002');
+$templateHelper->addNewJsBodyBottom('file', 'jquery.dataTables.bootstrap.js', 'xapptheme', '1003');
+
+$componentCustomScript = '
+	$(function() {
+		var oTable1 = $(\'#table_report\').dataTable( {
+			"aoColumns": [
+				{ "bSortable": false },
+				null, null, null, null, null, null,
+				{ "bSortable": false }
+			]
+		});
+
+		$(\'table th input:checkbox\').on(\'click\' , function(){
+			var that = this;
+			$(this).closest(\'table\').find(\'tr > td:first-child input:checkbox\')
+			.each(function(){
+			this.checked = that.checked;
+			$(this).closest(\'tr\').toggleClass(\'selected\');
+		});
+		
+	});
+
+	$(\'[data-rel=tooltip]\').tooltip();
+	})
+';
+
+$templateHelper->addNewJsBodyBottom('custom', $componentCustomScript, 'xapptheme', '1004');
 
 
 ?>
