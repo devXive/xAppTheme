@@ -290,7 +290,7 @@ require_once(__DIR__ . '/config.php');
 
 					<div id="page-content" class="clearfix">
 
-<!--
+
 						<?php if($show_page_heading == 1) { ?>
 							<div class="page-header position-relative">
 								<h1><?php echo $page_title; ?> <small><i class="icon-double-angle-right"></i> <?php echo $page_heading; ?></small></h1>
