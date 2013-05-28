@@ -94,33 +94,16 @@ $templateHelper->addNewJsBodyBottom('file', 'uncompressed/ace.js', 'xapptheme', 
 // Logo file or site title param
 if ($params->get('logoFile'))
 {
-	$logo = '<img src="'. JURI::root() . $this->params->get('logoFile') .'" alt="'. $sitename .'" />';
+	$logo = '<img src="'. JURI::root() . $params->get('logoFile') .'" alt="'. $sitename .'" />';
 }
 elseif ($params->get('sitetitle'))
 {
-	$logo = '<span class="site-title" title="'. $sitename .'">'. htmlspecialchars($this->params->get('sitetitle')) .'</span>';
+	$logo = '<span class="site-title" title="'. $sitename .'">'. htmlspecialchars($params->get('sitetitle')) .'</span>';
 }
 else
 {
 	$logo = '<span class="site-title" title="xAppTheme">xAppTheme by devXive</span>';
 }
-
-// Offlinelogo file or site title param
-if ($app->getCfg('offline_image'))
-{
-	$offlinelogo = '<img src="' . $app->getCfg('offline_image') . '" alt="' . htmlspecialchars($app->getCfg('sitename')) . '" />';
-}
-elseif ($this->params->get('logoFile'))
-{
-	$offlinelogo = '<span class="site-title" title="'. $sitename .'">'. htmlspecialchars($this->params->get('sitetitle')) .'</span>';
-}
-else
-{
-	$offlinelogo = '<h1><i class="icon-cloud green"></i> <span class="red">xAppTheme</span> <small class="white">by devXive</small></h1>';
-}
-
-
-
 
 
 
