@@ -250,20 +250,8 @@ require_once(__DIR__ . '/config.php');
 
 			<div id="sidebar" class="<?php echo ($params->get('fixedLayout') ? ' fixed' : ''); ?>">
 				
-				<div id="sidebar-shortcuts">
-					<div id="sidebar-shortcuts-large">
-						<button class="btn btn-small btn-success"><i class="icon-ticket" title="Tickets"></i></button>
-						<button class="btn btn-small btn-info"><i class="icon-group" title="Patient"></i></button>
-						<button class="btn btn-small btn-warning"><i class="icon-user-md" title="Medicine Addressbook"></i></button>
-						<button class="btn btn-small btn-danger"><i class="icon-ambulance" title="Quicky"></i></button>
-					</div>
-					<div id="sidebar-shortcuts-mini">
-						<span class="btn btn-success"></span>
-						<span class="btn btn-info"></span>
-						<span class="btn btn-warning"></span>
-						<span class="btn btn-danger"></span>
-					</div>
-				</div><!-- #sidebar-shortcuts -->
+				<jdoc:include type="modules" name="sidebar-shortcuts" />
+				<!-- #sidebar-shortcuts -->
 
 <!-- #XAP START MODULE -->
 				<jdoc:include type="modules" name="sidebar" />
@@ -293,7 +281,7 @@ require_once(__DIR__ . '/config.php');
 
 						<?php if($show_page_heading == 1) { ?>
 							<div class="page-header position-relative">
-								<h1><?php echo $page_title; ?> <small><i class="icon-double-angle-right"></i> <?php echo $page_heading; ?></small></h1>
+								<h1><?php if($menu_anchor_icon): echo '<i class="' . $menu_anchor_icon . '"></i> '; endif; ?><?php echo $page_title; ?> <small><i class="icon-double-angle-right"></i> <?php echo $page_heading; ?></small></h1>
 							</div><!--/page-header-->
 						<?php } ?>
 

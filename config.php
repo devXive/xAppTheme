@@ -34,6 +34,7 @@ $app = JFactory::getApplication();
 		$menu_params = $menu->getParams($menu_id);
 		$show_page_heading = $menu_params->get('show_page_heading');
 		$page_heading = $menu_params->get('page_heading');
+		$menu_anchor_icon = $menu_params->get('menu-anchor_css');
 	} else if($app->input->getCmd('Itemid', '')) {
 		$menu_id = $app->input->getCmd('Itemid', '');
 	} else {
