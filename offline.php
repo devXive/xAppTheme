@@ -9,6 +9,21 @@
 
 defined('_JEXEC') or die;
 require_once(__DIR__ . '/config.php');
+
+// Offlinelogo file or site title param
+if ($app->getCfg('offline_image'))
+{
+	$offlinelogo = '<img src="' . $app->getCfg('offline_image') . '" alt="' . htmlspecialchars($app->getCfg('sitename')) . '" />';
+}
+elseif ($this->params->get('logoFile'))
+{
+ 	$offlinelogo = '<span class="site-title" title="'. $sitename .'">'. htmlspecialchars($this->params->get('sitetitle')) .'</span>';
+}
+else
+{
+	$offlinelogo = '<h1><i class="icon-cloud green"></i> <span class="red">xAppTheme</span> <small class="white">by devXive</small></h1>';
+}
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->language; ?>" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>">
@@ -66,7 +81,7 @@ require_once(__DIR__ . '/config.php');
 		<div class="widget-body">
 		 <div class="widget-main">
 			<h4 class="header lighter bigger"><i class="icon-coffee green"></i> Please Enter Your Information</h4>
-			
+
 			<div class="space-6"></div>
 			
 			<?php if ($app->getCfg('display_offline_message', 1) == 1 && str_replace(' ', '', $app->getCfg('offline_message')) != '') : ?>
@@ -176,6 +191,12 @@ require_once(__DIR__ . '/config.php');
 		<div class="widget-body">
 		 <div class="widget-main">
 			<h4 class="header green lighter bigger"><i class="icon-group blue"></i> New User Registration</h4>
+
+			<div class="alert alert-error center">
+				This has been disabled!<br>
+				Feel free to contact us to gain access!
+			</div>
+
 			<div class="space-6"></div>
 
 			<p>
@@ -186,38 +207,38 @@ require_once(__DIR__ . '/config.php');
 				 <fieldset>
 					<label>
 						<span class="block input-icon input-icon-right">
-							<input type="email" class="span12" placeholder="Email" />
+							<input type="email" class="span12" placeholder="Email" disabled />
 							<i class="icon-envelope"></i>
 						</span>
 					</label>
 					<label>
 						<span class="block input-icon input-icon-right">
-							<input type="text" class="span12" placeholder="Username" />
+							<input type="text" class="span12" placeholder="Username" disabled />
 							<i class="icon-user"></i>
 						</span>
 					</label>
 					<label>
 						<span class="block input-icon input-icon-right">
-							<input type="password" class="span12" placeholder="Password" />
+							<input type="password" class="span12" placeholder="Password" disabled />
 							<i class="icon-lock"></i>
 						</span>
 					</label>
 					<label>
 						<span class="block input-icon input-icon-right">
-							<input type="password" class="span12" placeholder="Repeat password" />
+							<input type="password" class="span12" placeholder="Repeat password" disabled />
 							<i class="icon-retweet"></i>
 						</span>
 					</label>
 					
 					<label>
-						<input type="checkbox"><span class="lbl"> I accept the <a href="#">User Agreement</a></span>
+						<input type="checkbox" disabled><span class="lbl"> I accept the <a href="#" disabled>Agreement</a></span>
 					</label>
 					
 					<div class="space-24"></div>
 					
 					<div class="row-fluid">
-						<button type="reset" class="span6 btn btn-small"><i class="icon-refresh"></i> Reset</button>
-						<button onclick="return false;" class="span6 btn btn-small btn-success">Register <i class="icon-arrow-right icon-on-right"></i></button>
+						<button type="reset" class="span6 btn btn-small"><i class="icon-refresh" disabled></i> Reset</button>
+						<button onclick="return false;" class="span6 btn btn-small btn-success" disabled>Register <i class="icon-arrow-right icon-on-right"></i></button>
 					</div>
 					
 				  </fieldset>
