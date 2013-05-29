@@ -15,7 +15,7 @@ $this->language = $doc->language;
 $this->direction = $doc->direction;
 
 // Add JavaScript Frameworks
-JHtml::_('bootstrap.framework');
+// JHtml::_('bootstrap.framework');
 
 // Add Stylesheets
 $doc->addStyleSheet('templates/'.$this->template.'/assets/css/bootstrap.min.css');
