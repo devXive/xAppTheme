@@ -6,14 +6,14 @@
  * @copyright   Copyright (C) 1997 - 2013 devXive - research and development. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
-
 defined('_JEXEC') or die;
+
 require_once(__DIR__ . '/config.php');
 
 // Offlinelogo file or site title param
 if ($app->getCfg('offline_image'))
 {
-	$offlinelogo = '<img src="' . $app->getCfg('offline_image') . '" alt="' . htmlspecialchars($app->getCfg('sitename')) . '" />';
+	$offlinelogo = '<img src="' . $app->getCfg('offline_image') . '" alt="' . htmlspecialchars($app->getCfg('sitename')) . '" style="margin-top: 25px;" />';
 }
 elseif ($this->params->get('logoFile'))
 {
@@ -46,14 +46,14 @@ else
 	?>
 	<link href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template; ?>/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
 	<!--[if IE 7]>
-	  <link rel="stylesheet" href="<?php echo $this->baseurl . '/templates/' . $this->template; ?>/assets/css/font-awesome-ie7.min.css" />
+	  <link rel="stylesheet" href="<?php echo $this->baseurl; ?>/media/nawala/css/font-awesome-ie7.min.css" />
 	<![endif]-->
 	<!--[if lt IE 9]>
 		<link rel="stylesheet" href="<?php echo $this->baseurl . '/templates/' . $this->template; ?>/assets/css/ace-ie.min.css" />
 		<script src="<?php echo $this->baseurl; ?>/media/jui/js/html5.js"></script>
 	<![endif]-->
 </head>
-<body class="login-layout">
+<body class="login-layout" style="background-color: #ccc;">
 	
 		<div class="container-fluid" id="main-container">
 			<div id="main-content">
@@ -117,7 +117,7 @@ else
 						<label class="span8">
 							<input type="checkbox" name="remember" value="yes" alt="<?php echo JText::_('TPL_XAPPTHEME_REMEMBER_ME'); ?>"><span class="lbl"> <?php echo JText::_('TPL_XAPPTHEME_REMEMBER_ME'); ?></span>
 						</label>
-						<button onclick="document.offline-login.submit();" class="span4 btn btn-small btn-primary"><i class="icon-key"></i> <?php echo JText::_('TPL_XAPPTHEME_LOGIN'); ?></button>
+						<button type="submit" onclick="document.offline-login.submit();" class="span4 btn btn-small btn-primary"><i class="icon-key"></i> <?php echo JText::_('TPL_XAPPTHEME_LOGIN'); ?></button>
 					</div>
 					
 				</fieldset>
@@ -127,6 +127,7 @@ else
 				<input type="hidden" name="return" value="<?php echo base64_encode(JURI::base()) ?>" />
 				<?php echo JHtml::_('form.token'); ?>
 			</form>
+
 		 </div><!--/widget-main-->
 		
 		
@@ -268,27 +269,13 @@ else
 			</div>
 		</div><!--/.fluid-container-->
 
+		<?php $templateHelper->loadJsBodyBottom(); ?>
 
-		<!-- basic scripts -->
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<script type="text/javascript">
-		window.jQuery || document.write("<script src='assets/js/jquery-1.9.1.min.js'>\x3C/script>");
-		</script>
-		
-		<script src="<?php echo $this->baseurl . '/templates/' . $this->template; ?>/assets/js/bootstrap.min.js"></script>
-
-		<!-- page specific plugin scripts -->
-		
-		<!-- ace scripts -->
-		<script src="<?php echo $this->baseurl . '/templates/' . $this->template; ?>/assets/js/ace-elements.min.js"></script>
-		<script src="<?php echo $this->baseurl . '/templates/' . $this->template; ?>/assets/js/ace.min.js"></script>
-
-		<!-- inline scripts related to this page -->
-		<script type="text/javascript">
-			function show_box(id) {
-				$('.widget-box.visible').removeClass('visible');
-				$('#'+id).addClass('visible');
-			}
+				function show_box(id) {
+					jQuery('.widget-box.visible').removeClass('visible');
+					jQuery('#'+id).addClass('visible');
+				}
 		</script>
 </body>
 </html>
