@@ -39,16 +39,11 @@ require_once(__DIR__ . '/config.php');
 		</style>
 	<?php
 	}
-
-// remove unused scripts, styles and tags
-$templateHelper->removeScript('mootools-core.js,caption.js');
-$templateHelper->removeGenerator();
-$templateHelper->forceIeChromeFrame();
 	?>
-	<link rel="stylesheet" href="/media/nawala/assets/css/bootstrap.min.css" />
-	<link rel="stylesheet" href="/media/nawala/assets/css/bootstrap-responsive.min.css" />
-	<link rel="stylesheet" href="/media/nawala/assets/css/font-awesome.css" />
-	<link rel="stylesheet" href="/media/nawala/assets/css/nfw-icon-animation.css" />
+	<link rel="stylesheet" href="/media/nawala/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="/media/nawala/css/bootstrap-responsive.min.css" />
+	<link rel="stylesheet" href="/media/nawala/css/font-awesome.css" />
+	<link rel="stylesheet" href="/media/nawala/css/nfw-icon-animation.css" />
 
 	<link rel="stylesheet" href="<?php echo $this->baseurl . '/templates/' . $this->template; ?>/assets/css/ace.css" />
 	<link rel="stylesheet" href="<?php echo $this->baseurl . '/templates/' . $this->template; ?>/assets/css/ace-responsive.css" />
@@ -69,83 +64,78 @@ $templateHelper->forceIeChromeFrame();
 	. ($layout ? ' layout-' . $layout : ' no-layout')
 	. ($task ? ' task-' . $task : ' no-task')
 	. ($itemid ? ' itemid-' . $itemid : '')
-	. ' fixed';
+	. ($params->get('fixedLayout') ? ' navbar-fixed' : '');
 ?>">
-
-
-	<div class="navbar navbar-inverse navbar-fixed-top">
+	<div class="navbar navbar-inverse <?php echo ($params->get('fixedLayout') ? ' navbar-fixed-top' : ''); ?>">
 		<div class="navbar-inner">
 			<div class="container-fluid">
-				<a class="brand" href="<?php echo $this->baseurl; ?>"><small><i class="icon-cloud"></i> <?php echo $logo; ?></small> </a>
+				<a class="brand" href="<?php echo $this->baseurl; ?>"><small><i class="icon-cloud"></i> <?php echo $logo; ?></small></a>
 			</div><!--/.container-fluid-->
 		</div><!--/.navbar-inner-->
 	</div><!--/.navbar-->
 
-	<div class="container-fluid" id="">
+	<div class="container-fluid" id="main-container">
+		<div id="sidebar" class="<?php echo ($params->get('fixedLayout') ? ' fixed' : ''); ?>">
+		</div><!--/#sidebar-->
+
 		<div id="main-content" class="clearfix">
 			<div id="page-content" class="clearfix">
-<!-- PAGE CONTENT BEGINS HERE -->
 				<div id="content" class="row-fluid">
+					<!-- APP CONTENT BEGINS HERE -->
 					<div class="error-container">
 						<div class="well">
 							<h1 class="grey lighter smaller">
 								<span class="blue bigger-125"><i class="icon-sitemap"></i> <?php echo $this->error->getCode(); ?></span> <?php echo $this->error->getMessage();?>
 							</h1>
 							<hr />
-							<h3 class="lighter smaller">We looked everywhere but we couldn't find it!</h3>
-						<div>
-						<h4 class="smaller"><?php echo JText::_('JERROR_LAYOUT_NOT_ABLE_TO_VISIT'); ?></h4>
-						<ul class="unstyled spaced inline bigger-110">
-							<li><i class="icon-hand-up orange"></i> <?php echo JText::_('JERROR_LAYOUT_AN_OUT_OF_DATE_BOOKMARK_FAVOURITE'); ?></li>
-							<li><i class="icon-hand-up orange"></i> <?php echo JText::_('JERROR_LAYOUT_SEARCH_ENGINE_OUT_OF_DATE_LISTING'); ?></li>
-							<li><i class="icon-hand-up red"></i> <?php echo JText::_('JERROR_LAYOUT_MIS_TYPED_ADDRESS'); ?></li>
-							<li><i class="icon-hand-up red"></i> <?php echo JText::_('JERROR_LAYOUT_YOU_HAVE_NO_ACCESS_TO_THIS_PAGE'); ?></li>
-						</ul>
-					</div>
-					<div class="space"></div>
-					<div>
-						<?php if (JModuleHelper::getModule('search')) : ?>
-							<p><strong><?php echo JText::_('JERROR_LAYOUT_SEARCH'); ?></strong></p>
-							<p><?php echo JText::_('JERROR_LAYOUT_SEARCH_PAGE'); ?></p>
-							<?php
-								$module = JModuleHelper::getModule('search');
-								echo JModuleHelper::renderModule($module);
-							?>
-						<?php endif; ?>
-						<div class="space"></div>
-						<h4 class="smaller">Try one of the following:</h4>
-						<ul class="unstyled spaced inline bigger-110">
-							<li><i class="icon-hand-right blue"></i> Re-check the url for typos</li>
-							<li><i class="icon-hand-right blue"></i> Read the faq</li>
-							<li><i class="icon-hand-right blue"></i> Tell us about it</li>
-						</ul>
-					</div>
-					<hr />
-					<div class="space"></div>
-					<div class="row-fluid">
-						<div class="center">
-							<a href="#" onclick="top.history.back();" class="btn btn-grey"><i class="icon-arrow-left"></i> Go Back</a>
-							<a href="<?php echo $this->baseurl; ?>/index.php" class="btn btn-primary"><i class="icon-home"></i> <?php echo JText::_('JERROR_LAYOUT_HOME_PAGE'); ?></a>
+							<h2 class="lighter smaller"><i class="icon-wrench icon-animated-wrench"></i> We looked everywhere but we couldn't find it!</h2>
+							<div>
+								<h4 class="smaller"><?php echo JText::_('JERROR_LAYOUT_NOT_ABLE_TO_VISIT'); ?></h4>
+								<ul class="unstyled spaced inline bigger-110">
+									<li><i class="icon-hand-up orange"></i> <?php echo JText::_('JERROR_LAYOUT_AN_OUT_OF_DATE_BOOKMARK_FAVOURITE'); ?></li>
+									<li><i class="icon-hand-up orange"></i> <?php echo JText::_('JERROR_LAYOUT_SEARCH_ENGINE_OUT_OF_DATE_LISTING'); ?></li>
+									<li><i class="icon-hand-up red"></i> <?php echo JText::_('JERROR_LAYOUT_MIS_TYPED_ADDRESS'); ?></li>
+									<li><i class="icon-hand-up red"></i> <?php echo JText::_('JERROR_LAYOUT_YOU_HAVE_NO_ACCESS_TO_THIS_PAGE'); ?></li>
+								</ul>
+							</div>
+							<div class="space"></div>
+							<div>
+								<?php if (JModuleHelper::getModule('search')) : ?>
+									<p><strong><?php echo JText::_('JERROR_LAYOUT_SEARCH'); ?></strong></p>
+									<p><?php echo JText::_('JERROR_LAYOUT_SEARCH_PAGE'); ?></p>
+									<?php
+										$module = JModuleHelper::getModule('search');
+										echo JModuleHelper::renderModule($module);
+									?>
+								<?php endif; ?>
+								<div class="space"></div>
+								<h4 class="smaller">Try one of the following:</h4>
+								<ul class="unstyled spaced inline bigger-110">
+									<li><i class="icon-hand-right blue"></i> Re-check the url for typos</li>
+									<li><i class="icon-hand-right blue"></i> Read the faq</li>
+									<li><i class="icon-hand-right blue"></i> Tell us about it</li>
+								</ul>
+							</div>
+							<hr />
+							<div class="space"></div>
+							<div class="row-fluid">
+								<div class="center">
+									<a href="#" onclick="top.history.back();" class="btn btn-grey"><i class="icon-arrow-left"></i> Try to go back</a>
+									<a href="<?php echo $this->baseurl; ?>/" class="btn btn-primary"><i class="icon-home"></i> <?php echo JText::_('JERROR_LAYOUT_HOME_PAGE'); ?></a>
+									<a href="http://devxive.com" class="btn btn-warning" target="_blank"><i class="icon-ticket"></i> Report an Issue</a>
+								</div>
+							</div>
 						</div>
-					</div>
-				</div>
-<!-- PAGE CONTENT ENDS HERE -->
+					</div><!--/.error-container-->
+					<!-- APP CONTENT ENDS HERE -->
+				</div><!--/.row-fluid#content-->
 			</div><!--/#page-content-->
-		</div><!-- #main-content -->
+		</div><!--/#main-content-->
 	</div><!--/.fluid-container#main-container-->
 
 	<a href="#" id="btn-scroll-up" class="btn btn-small btn-inverse">
 		<i class="icon-double-angle-up icon-only"></i>
 	</a>
-
-<!-- Navigation -->
-	<jdoc:include type="modules" name="position-1" style="none" />
-
-<!-- Banner -->
-	<jdoc:include type="modules" name="banner" style="xhtml" />
-
-<!-- Nav Sidebar left-->
-	<jdoc:include type="modules" name="position-7" style="well" />
 
 	<!-- Footer -->
 	<div class="footer">
@@ -156,7 +146,5 @@ $templateHelper->forceIeChromeFrame();
 		<div class="container-fluid" style="text-align: right;">&copy; <?php echo $sitename; ?> <?php echo date('Y');?></div>
 		<jdoc:include type="modules" name="debug" style="none" />
 	</div>
-
-	<?php $templateHelper->loadJsBodyBottom(); ?>
 </body>
 </html>
