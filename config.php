@@ -74,7 +74,7 @@ $templateHelper->addNewCssHead('file', 'nfw-icon-animation.css', 'framework');
  * Load and perform template based settings
  */
 // remove unused scripts, styles and tags
-$templateHelper->removeScript('mootools-core.js,caption.js');
+// $templateHelper->removeScript('mootools-core.js,caption.js');
 // $templateHelper->removeStyle('');
 $templateHelper->removeGenerator();
 $templateHelper->forceIeChromeFrame();
@@ -83,6 +83,7 @@ $templateHelper->forceIeChromeFrame();
 $templateHelper->addNewCssHead('file', 'ace.css', 'xapptheme');
 $templateHelper->addNewCssHead('file', 'ace-responsive.css', 'xapptheme');
 $templateHelper->addNewCssHead('file', 'ace-skins.css', 'xapptheme');
+$templateHelper->addNewCssHead('file', 'custom.css', 'xapptheme');
 
 // Added template specific scripts
 $templateHelper->addNewJsBodyBottom('file', 'uncompressed/ace-elements.js', 'xapptheme', '1000');
@@ -112,14 +113,14 @@ else
 
 
 
-
-
-
+/**
+ * used in /components/com_xiveirm/views/irmmasterdatas/tmpl/default.php
+ */
 $templateHelper->addNewJsBodyBottom('file', 'jquery.dataTables.min.js', 'xapptheme', '1002');
 $templateHelper->addNewJsBodyBottom('file', 'jquery.dataTables.bootstrap.js', 'xapptheme', '1003');
 
 $componentCustomScript = '
-	$(function() {
+	jQuery(function() {
 		var oTable1 = $(\'#table_report\').dataTable( {
 			"aoColumns": [
 				{ "bSortable": false },
@@ -138,11 +139,12 @@ $componentCustomScript = '
 		
 	});
 
-	$(\'[data-rel=tooltip]\').tooltip();
+	jQuery(\'[data-rel=tooltip]\').tooltip();
 	})
 ';
 
-$templateHelper->addNewJsBodyBottom('custom', $componentCustomScript, 'xapptheme', '1004');
+$templateHelper->addNewJsBodyBottom('custom', $componentCustomScript, 'xapptheme', '2000');
+
 
 
 ?>
