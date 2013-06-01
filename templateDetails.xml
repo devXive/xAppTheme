@@ -3,7 +3,7 @@
 <extension version="3.1" type="template" client="site">
 	<name>xAppTheme</name>
 	<version>1.1.0</version>
-	<creationDate>5/27/2013</creationDate>
+	<creationDate>5/25/2013</creationDate>
 	<author>devXive</author>
 	<authorEmail>support@devxive.com</authorEmail>
 	<authorUrl>http://devxive.com</authorUrl>
@@ -23,6 +23,7 @@
 	</files>
 	<positions>
 		<position>sidebar</position>
+		<position>sidebar-shortcuts</position>
 		<position>breadcrumbs</position>
 		<position>login</position>
 		<position>position-1</position>
@@ -38,7 +39,6 @@
 		<position>position-11</position>
 		<position>position-12</position>
 		<position>position-13</position>
-		<position>position-14</position>
 		<position>footer</position>
 		<position>debug</position>
 	</positions>
