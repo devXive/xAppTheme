@@ -120,7 +120,7 @@ require_once(__DIR__ . '/config.php');
 							<div class="space"></div>
 							<div class="row-fluid">
 								<div class="center">
-									<a href="#" onclick="top.history.back();" class="btn btn-grey"><i class="icon-arrow-left"></i> Try to go back</a>
+									<a href="javascript:top.history.back();" class="btn btn-grey"><i class="icon-arrow-left"></i> Try to go back</a>
 									<a href="<?php echo $this->baseurl; ?>/" class="btn btn-primary"><i class="icon-home"></i> <?php echo JText::_('JERROR_LAYOUT_HOME_PAGE'); ?></a>
 									<a href="http://devxive.com" class="btn btn-warning" target="_blank"><i class="icon-ticket"></i> Report an Issue</a>
 								</div>
