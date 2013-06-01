@@ -83,6 +83,7 @@ $templateHelper->forceIeChromeFrame();
 $templateHelper->addNewCssHead('file', 'ace.css', 'xapptheme');
 $templateHelper->addNewCssHead('file', 'ace-responsive.css', 'xapptheme');
 $templateHelper->addNewCssHead('file', 'ace-skins.css', 'xapptheme');
+$templateHelper->addNewCssHead('file', 'chosen.css', 'xapptheme');
 $templateHelper->addNewCssHead('file', 'custom.css', 'xapptheme');
 
 // Added template specific scripts
@@ -118,6 +119,9 @@ else
  */
 $templateHelper->addNewJsBodyBottom('file', 'jquery.dataTables.min.js', 'xapptheme', '1002');
 $templateHelper->addNewJsBodyBottom('file', 'jquery.dataTables.bootstrap.js', 'xapptheme', '1003');
+$templateHelper->addNewJsBodyBottom('file', 'chosen.jquery.min.js', 'xapptheme', '1004');
+$templateHelper->addNewJsBodyBottom('file', 'jquery.autosize-min.js', 'xapptheme', '1005');
+$templateHelper->addNewJsBodyBottom('file', 'jquery.inputlimiter.1.3.1.min.js', 'xapptheme', '1006');
 
 $componentCustomScript = '
 	jQuery(function() {
@@ -141,6 +145,23 @@ $componentCustomScript = '
 
 	jQuery(\'[data-rel=tooltip]\').tooltip();
 	})
+
+	jQuery(".chzn-select").chosen();
+	jQuery(".chzn-select-deselect").chosen({allow_single_deselect:true});
+
+	jQuery(".ace-tooltip").tooltip();
+
+	jQuery(".ace-popover").popover();
+			
+	jQuery("textarea[class*=autosize]").autosize({append: "\n"});
+	jQuery("textarea[class*=limited]").each(function() {
+		var limit = parseInt($(this).attr("data-maxlength")) || 100;
+		$(this).inputlimiter({
+			"limit": limit,
+			remText: "%n character%s remaining...",
+			limitText: "max allowed : %n."
+		});
+	});
 ';
 
 $templateHelper->addNewJsBodyBottom('custom', $componentCustomScript, 'xapptheme', '2000');
