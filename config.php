@@ -84,6 +84,7 @@ $templateHelper->addNewCssHead('file', 'ace.css', 'xapptheme');
 $templateHelper->addNewCssHead('file', 'ace-responsive.css', 'xapptheme');
 $templateHelper->addNewCssHead('file', 'ace-skins.css', 'xapptheme');
 $templateHelper->addNewCssHead('file', 'chosen.css', 'xapptheme');
+$templateHelper->addNewCssHead('file', 'jquery.gritter.css', 'xapptheme');
 $templateHelper->addNewCssHead('file', 'custom.css', 'xapptheme');
 
 // Added template specific scripts
@@ -122,6 +123,7 @@ $templateHelper->addNewJsBodyBottom('file', 'jquery.dataTables.bootstrap.js', 'x
 $templateHelper->addNewJsBodyBottom('file', 'chosen.jquery.min.js', 'xapptheme', '1004');
 $templateHelper->addNewJsBodyBottom('file', 'jquery.autosize-min.js', 'xapptheme', '1005');
 $templateHelper->addNewJsBodyBottom('file', 'jquery.inputlimiter.1.3.1.min.js', 'xapptheme', '1006');
+$templateHelper->addNewJsBodyBottom('file', 'jquery.gritter.min.js', 'xapptheme', '1007');
 
 $componentCustomScript = '
 	jQuery(function() {
@@ -161,6 +163,14 @@ $componentCustomScript = '
 			remText: "%n character%s remaining...",
 			limitText: "max allowed : %n."
 		});
+	});
+
+	jQuery("#loading-btn").on("click", function () {
+		var btn = $(this);
+		btn.button("loading")
+		setTimeout(function () {
+			btn.button("reset")
+		}, 2000)
 	});
 ';
 
