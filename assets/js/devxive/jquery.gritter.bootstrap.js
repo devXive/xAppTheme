@@ -1,12 +1,16 @@
 /*
- * Gritter for jQuery
- * http://www.boedesign.com/
+ * Gritter for Bootstrap
+ * http://www.devXive.com
  *
- * Copyright (c) 2012 Jordan Boesch
+ * Copyright (C) 1997 - 2013 devXive - research and development. All rights reserved.
  * Dual licensed under the MIT and GPL licenses.
  *
- * Date: February 24, 2012
- * Version: 1.7.4
+ * Date: June 02, 2013
+ * Version: 1.0.0
+ *
+ * Requires: jQuery v1.8.3+ and Bootstrap v 2.3.0+
+ *
+ * originally based on Gritter for jQuery by Jordan Boesch - http://www.boedesign.com // Date: February 24, 2012 - Version: 1.7.4
  */
 
 (function($){
@@ -80,7 +84,7 @@
 		_is_setup: 0,
 		_tpl_close: '<div class="gritter-close"></div>',
 		_tpl_title: '<span class="gritter-title">[[title]]</span>',
-		_tpl_item: '<div id="gritter-item-[[number]]" class="gritter-item-wrapper [[item_class]]" style="display:none"><div class="gritter-top"></div><div class="gritter-item">[[close]][[image]]<div class="[[class_name]]">[[title]]<p>[[text]]</p></div><div style="clear:both"></div></div><div class="gritter-bottom"></div></div>',
+		_tpl_item: '<div id="gritter-item-[[number]]" class="gritter-item-wrapper [[item_class]]" style="display:none"><div class="gritter-top"></div><div class="gritter-item">[[close]][[image]][[icon]]<div class="[[class_name]]">[[title]]<p>[[text]]</p></div><div style="clear:both"></div></div><div class="gritter-bottom"></div></div>',
 		_tpl_wrap: '<div id="gritter-notice-wrapper"></div>',
 		
 		/**
@@ -108,6 +112,7 @@
 			var title = params.title, 
 				text = params.text,
 				image = params.image || '',
+				icon = params.icon || '',
 				sticky = params.sticky || false,
 				item_class = params.class_name || $.gritter.options.class_name,
 				position = $.gritter.options.position,
@@ -134,6 +139,9 @@
 			
 			var image_str = (image != '') ? '<img src="' + image + '" class="gritter-image" />' : '',
 				class_name = (image != '') ? 'gritter-with-image' : 'gritter-without-image';
+
+			var icon_str = (icon != '') ? '<span class="gritter-image"><i class="' + icon + '" style="font-size: 48px;"></i></span>' : '',
+				class_name = (icon != '') ? 'gritter-with-icon' : 'gritter-without-icon';
 			
 			// String replacements on the template
 			if(title){
@@ -143,8 +151,8 @@
 			}
 			
 			tmp = this._str_replace(
-				['[[title]]', '[[text]]', '[[close]]', '[[image]]', '[[number]]', '[[class_name]]', '[[item_class]]'],
-				[title, text, this._tpl_close, image_str, this._item_count, class_name, item_class], tmp
+				['[[title]]', '[[text]]', '[[close]]', '[[image]]', '[[icon]]', '[[number]]', '[[class_name]]', '[[item_class]]'],
+				[title, text, this._tpl_close, image_str, icon_str, this._item_count, class_name, item_class], tmp
 			);
 
 			// If it's false, don't show another gritter message
