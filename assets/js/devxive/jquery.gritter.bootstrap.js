@@ -82,9 +82,9 @@
 		_custom_timer: 0,
 		_item_count: 0,
 		_is_setup: 0,
-		_tpl_close: '<div class="gritter-close"></div>',
-		_tpl_title: '<span class="gritter-title">[[title]]</span>',
-		_tpl_item: '<div id="gritter-item-[[number]]" class="gritter-item-wrapper [[item_class]]" style="display:none"><div class="gritter-top"></div><div class="gritter-item">[[close]][[image]][[icon]]<div class="[[class_name]]">[[title]]<p>[[text]]</p></div><div style="clear:both"></div></div><div class="gritter-bottom"></div></div>',
+		_tpl_close: '<button class="gritter-close close pull-right">x</button>',
+		_tpl_title: '<h4 class="alert-heading media-heading">[[title]]</h4>',
+		_tpl_item: '<div id="gritter-item-[[number]]" class="gritter-item-wrapper alert [[item_class]]" style="display:none">[[close]]<div class="media">[[image]][[icon]]<div class="media-body">[[title]]<p>[[text]]</p></div></div></div>',
 		_tpl_wrap: '<div id="gritter-notice-wrapper"></div>',
 		
 		/**
@@ -137,11 +137,9 @@
 				this._custom_timer = time_alive;
 			}
 			
-			var image_str = (image != '') ? '<img src="' + image + '" class="gritter-image" />' : '',
-				class_name = (image != '') ? 'gritter-with-image' : 'gritter-without-image';
+			var image_str = (image != '') ? '<span class="pull-left gritter-media"><img src="' + image + '" style="width: 48px;"/></span>' : '';
 
-			var icon_str = (icon != '') ? '<span class="gritter-image"><i class="' + icon + '" style="font-size: 48px;"></i></span>' : '',
-				class_name = (icon != '') ? 'gritter-with-icon' : 'gritter-without-icon';
+			var icon_str = (icon != '') ? '<span class="pull-left gritter-media"><i class="' + icon + '" style="font-size: 48px;"></i></span>' : '';
 			
 			// String replacements on the template
 			if(title){
@@ -151,8 +149,8 @@
 			}
 			
 			tmp = this._str_replace(
-				['[[title]]', '[[text]]', '[[close]]', '[[image]]', '[[icon]]', '[[number]]', '[[class_name]]', '[[item_class]]'],
-				[title, text, this._tpl_close, image_str, icon_str, this._item_count, class_name, item_class], tmp
+				['[[title]]', '[[text]]', '[[close]]', '[[image]]', '[[icon]]', '[[number]]', '[[item_class]]'],
+				[title, text, this._tpl_close, image_str, icon_str, this._item_count, item_class], tmp
 			);
 
 			// If it's false, don't show another gritter message
@@ -271,17 +269,11 @@
 				
 				e.addClass('hover');
 				
-				// Show close button
-				e.find('.gritter-close').show();
-						
 			}
 			// Remove the border styles and hide (X) close button when you mouse out
 			else {
 				
 				e.removeClass('hover');
-				
-				// Hide close button
-				e.find('.gritter-close').hide();
 				
 			}
 			

@@ -84,7 +84,7 @@ $templateHelper->addNewCssHead('file', 'ace.css', 'xapptheme');
 $templateHelper->addNewCssHead('file', 'ace-responsive.css', 'xapptheme');
 $templateHelper->addNewCssHead('file', 'ace-skins.css', 'xapptheme');
 $templateHelper->addNewCssHead('file', 'chosen.css', 'xapptheme');
-$templateHelper->addNewCssHead('file', 'jquery.gritter.css', 'xapptheme');
+$templateHelper->addNewCssHead('file', '/devxive/jquery.gritter.bootstrap.css', 'xapptheme');
 $templateHelper->addNewCssHead('file', 'custom.css', 'xapptheme');
 
 // Added template specific scripts
