@@ -12,6 +12,10 @@
 	.vspace , .vspace-18, .vspace-24 , .vspace-36, .vspace-9, .vspace-6, .vspace-3 {
 		 display:block;
 	}
+
+	input{
+		margin-left:0 !important;
+	}
 }
 
 /* ace-nav responsive */
