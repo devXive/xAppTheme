@@ -124,6 +124,7 @@ $templateHelper->addNewJsBodyBottom('file', 'chosen.jquery.min.js', 'xapptheme',
 $templateHelper->addNewJsBodyBottom('file', 'jquery.autosize-min.js', 'xapptheme', '1005');
 $templateHelper->addNewJsBodyBottom('file', 'jquery.inputlimiter.1.3.1.min.js', 'xapptheme', '1006');
 $templateHelper->addNewJsBodyBottom('file', 'jquery.gritter.min.js', 'xapptheme', '1007');
+$templateHelper->addNewJsBodyBottom('file', 'jquery.timeago.js', 'xapptheme', '1008');
 
 $componentCustomScript = '
 	jQuery(function() {
@@ -166,12 +167,17 @@ $componentCustomScript = '
 	});
 
 	jQuery("#loading-btn").on("click", function () {
+		$("#loading-btn").addClass("btn-warning");
 		var btn = $(this);
 		btn.button("loading")
 		setTimeout(function () {
+			$("#loading-btn").removeClass("btn-warning"),
 			btn.button("reset")
-		}, 2000)
+		}, 5000)
 	});
+
+	// TimeAgoScript
+	jQuery("abbr.timeago").timeago();
 ';
 
 $templateHelper->addNewJsBodyBottom('custom', $componentCustomScript, 'xapptheme', '2000');
