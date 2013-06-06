@@ -26,11 +26,11 @@ $flink = JFilterOutput::ampReplace(htmlspecialchars($flink));
 switch ($item->browserNav) :
 	default:
 	case 0:
-?><a <?php echo $class; ?>href="<?php echo $flink; ?>" <?php echo $title; ?>><i <?php echo $class; ?>></i> <span><?php echo $linktype; ?></span></a><?php
+?><a href="<?php echo $flink; ?>" <?php echo $title; ?>><i <?php echo $class; ?>></i> <span><?php echo $linktype; ?></span></a><?php
 		break;
 	case 1:
 		// _blank
-?><a <?php echo $class; ?>href="<?php echo $flink; ?>" target="_blank" <?php echo $title; ?>><i <?php echo $class; ?>></i> <span><?php echo $linktype; ?></span></a><?php
+?><a href="<?php echo $flink; ?>" target="_blank" <?php echo $title; ?>><i <?php echo $class; ?>></i> <span><?php echo $linktype; ?></span></a><?php
 		break;
 	case 2:
 		// window.open
