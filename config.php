@@ -33,6 +33,7 @@ $app = JFactory::getApplication();
 		$page_title = $menu->getActive()->title;
 		$menu_params = $menu->getParams($menu_id);
 		$show_page_heading = $menu_params->get('show_page_heading');
+		$show_menu_text = $menu_params->get('menu_text');
 		$page_heading = $menu_params->get('page_heading');
 		$menu_anchor_icon = $menu_params->get('menu-anchor_css');
 	} else if($app->input->getCmd('Itemid', '')) {
@@ -178,6 +179,13 @@ $componentCustomScript = '
 
 	// TimeAgoScript
 	jQuery("abbr.timeago").timeago();
+
+	// Fix Dropdown input problem
+	jQuery(function() {
+		$(".dropdown-menu input, .dropdown-menu label").click(function(e) {
+			e.stopPropagation();
+		});
+	});
 ';
 
 $templateHelper->addNewJsBodyBottom('custom', $componentCustomScript, 'xapptheme', '2000');

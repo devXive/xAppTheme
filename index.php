@@ -8,6 +8,10 @@
  */
 
 defined('_JEXEC') or die;
+
+// Defining variables before config load, to prevent errors
+$show_menu_text = '';
+
 require_once(__DIR__ . '/config.php');
 ?>
 <!DOCTYPE html>
@@ -279,7 +283,7 @@ require_once(__DIR__ . '/config.php');
 					<div id="page-content" class="clearfix">
 
 
-						<?php if($show_page_heading == 1) { ?>
+						<?php if($show_menu_text == 1) { ?>
 							<div class="page-header position-relative">
 								<h1><?php if($menu_anchor_icon): echo '<i class="' . $menu_anchor_icon . '"></i> '; endif; ?><?php echo $page_title; ?> <small><i class="icon-double-angle-right"></i> <?php echo $page_heading; ?></small></h1>
 							</div><!--/page-header-->
