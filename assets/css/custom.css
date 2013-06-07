@@ -41,3 +41,9 @@
 #table_report td {
 	vertical-align: middle;
 }
+
+
+
+
+/* PROJECTFORK SUPPORT */
+#projectfork .thumbnail {min-width: 98px;}
