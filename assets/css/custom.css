@@ -1,3 +1,10 @@
+/* set color of placeholders for better readability */
+input::-webkit-input-placeholder { color: #ddd; }
+input:-moz-input-placeholder { color: #ddd; }
+input:-ms-input-placeholder { color: #ddd; }
+input:-o-input-placeholder { color: #ddd; }
+input:input-placeholder { color: #ddd; }
+
 .spacer {
 	display: block;
 	height: 5px;
