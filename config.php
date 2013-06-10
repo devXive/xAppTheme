@@ -140,15 +140,15 @@ $componentCustomScript = '
 		$(\'table th input:checkbox\').on(\'click\' , function(){
 			var that = this;
 			$(this).closest(\'table\').find(\'tr > td:first-child input:checkbox\')
-			.each(function(){
-			this.checked = that.checked;
-			$(this).closest(\'tr\').toggleClass(\'selected\');
-		});
+				.each(function(){
+					this.checked = that.checked;
+					$(this).closest(\'tr\').toggleClass(\'selected\');
+				});
 		
+		});
 	});
 
 	jQuery(\'[data-rel=tooltip]\').tooltip();
-	})
 
 	jQuery(".chzn-select").chosen();
 	jQuery(".chzn-select-deselect").chosen({allow_single_deselect:true});
