@@ -43,205 +43,28 @@ require_once(__DIR__ . '/config.php');
 	<![endif]-->
 </head>
 
-<body class="site <?php echo $option
+<body class="skin-5 site <?php echo $option
 	. ' view-' . $view
 	. ($layout ? ' layout-' . $layout : ' no-layout')
 	. ($task ? ' task-' . $task : ' no-task')
 	. ($itemid ? ' itemid-' . $itemid : '')
 	. ($params->get('fixedLayout') ? ' navbar-fixed' : '');
 ?>">
+<div id="siteready-overlay" class="loader-overlay">
+	<div class="loader-wrapper">
+		<div class="loader"></div>
+	</div>
+</div>
 		<div class="navbar navbar-inverse <?php echo ($params->get('fixedLayout') ? ' navbar-fixed-top' : ''); ?>">
 		  <div class="navbar-inner">
 		   <div class="container-fluid">
 
 			  <a class="brand" href="<?php echo $this->baseurl; ?>"><small><i class="icon-cloud"></i> <?php echo $logo; ?></small> </a>
 			  <ul class="nav ace-nav pull-right">
-					<li class="grey">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							<i class="icon-tasks icon-animated-wrench icon-only"></i>
-							<span class="badge">4</span>
-						</a>
-						<ul class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-closer">
-							<li class="nav-header">
-								<i class="icon-ok"></i> 4 Aufgaben zu erledigen
-							</li>
-							
-							<li>
-								<a href="#">
-									<div class="clearfix">
-										<span class="pull-left">Keine Geburtsdaten</span>
-										<span class="pull-right">65%</span>
-									</div>
-									<div class="progress progress-mini"><div class="bar" style="width:65%"></div></div>
-								</a>
-							</li>
-							
-							<li>
-								<a href="#">
-									<div class="clearfix">
-										<span class="pull-left">Adressen unvollst&auml;ndig</span>
-										<span class="pull-right">35%</span>
-									</div>
-									<div class="progress progress-mini progress-danger"><div class="bar" style="width:35%"></div></div>
-								</a>
-							</li>
-							
-							<li>
-								<a href="#">
-									<div class="clearfix">
-										<span class="pull-left">Abrechnungsrelevanz</span>
-										<span class="pull-right">15%</span>
-									</div>
-									<div class="progress progress-mini progress-warning"><div class="bar" style="width:15%"></div></div>
-								</a>
-							</li>
-							
-							<li>
-								<a href="#">
-									<div class="clearfix">
-										<span class="pull-left">Vorplanung</span>
-										<span class="pull-right">90%</span>
-									</div>
-									<div class="progress progress-mini progress-success progress-striped active"><div class="bar" style="width:90%"></div></div>
-								</a>
-							</li>
-							
-							<li>
-								<a href="#">
-									Aufgabendetails anzeigen
-									<i class="icon-arrow-right"></i>
-								</a>
-							</li>
-						</ul>
-					</li>
-
-
-					<li class="purple">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							<i class="icon-bell-alt icon-animated-bell icon-only"></i>
-							<span class="badge badge-important">8</span>
-						</a>
-						<ul class="pull-right dropdown-navbar navbar-pink dropdown-menu dropdown-caret dropdown-closer">
-							<li class="nav-header">
-								<i class="icon-warning-sign"></i> 8 Meldungen
-							</li>
-							
-							<li>
-								<a href="#">
-									<div class="clearfix">
-										<span class="pull-left"><i class="icon-comment btn btn-mini btn-pink"></i> Neue Kommentare</span>
-										<span class="pull-right badge badge-info">+12</span>
-									</div>
-								</a>
-							</li>
-							
-							<li>
-								<a href="#">
-									<i class="icon-user btn btn-mini btn-primary"></i> Thomas hat sich angemeldet ...
-								</a>
-							</li>
-							
-							<li>
-								<a href="#">
-									<div class="clearfix">
-										<span class="pull-left"><i class="icon-shopping-cart btn btn-mini btn-success"></i> Neue Fahrauftr&auml;ge</span>
-										<span class="pull-right badge badge-success">+8</span>
-									</div>
-								</a>
-							</li>
-							
-							<li>
-								<a href="#">
-									<div class="clearfix">
-										<span class="pull-left"><i class="icon-twitter btn btn-mini btn-info"></i> Fahrzeugupdates</span>
-										<span class="pull-right badge badge-info">+4</span>
-									</div>
-								</a>
-							</li>
-																
-							<li>
-								<a href="#">
-									Alle Mitteilungen anzeigen
-									<i class="icon-arrow-right"></i>
-								</a>
-							</li>
-						</ul>
-					</li>
-
-
-					<li class="green">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							<i class="icon-envelope-alt icon-animated-vertical icon-only"></i>
-							<span class="badge badge-success">5</span>
-						</a>
-						<ul class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-closer">
-							<li class="nav-header">
-								<i class="icon-envelope"></i> 5 neue Nachrichten
-							</li>
-							
-							<li>
-								<a href="#">
-									<img alt="Alex's Avatar" class="msg-photo" src="<?php echo $this->baseurl . '/templates/' . $this->template; ?>/assets/avatars/avatar.png" />
-									<span class="msg-body">
-										<span class="msg-title">
-											<span class="blue">94/11:</span>
-											Hi, Ich bin frei in Naumburg ...
-										</span>
-										<span class="msg-time">
-											<i class="icon-time"></i> <span>vor einer Minute</span>
-										</span>
-									</span>
-								</a>
-							</li>
-							
-							<li>
-								<a href="#">
-									<img alt="Susan's Avatar" class="msg-photo" src="<?php echo $this->baseurl . '/templates/' . $this->template; ?>/assets/avatars/avatar3.png" />
-									<span class="msg-body">
-										<span class="msg-title">
-											<span class="blue">DRK HU:</span>
-											Morgen, k&ouml;nntet Ihr uns einen Patien ...
-										</span>
-										<span class="msg-time">
-											<i class="icon-time"></i> <span>vor 20 Minuten</span>
-										</span>
-									</span>
-								</a>
-							</li>
-							
-							<li>
-								<a href="#">
-									<img alt="Bob's Avatar" class="msg-photo" src="<?php echo $this->baseurl . '/templates/' . $this->template; ?>/assets/avatars/avatar4.png" />
-									<span class="msg-body">
-										<span class="msg-title">
-											<span class="blue">Uwe Walz:</span>
-											Bitte an das Teammeeting nachher denken. Steht im Kal ...
-										</span>
-										<span class="msg-time">
-											<i class="icon-time"></i> <span>15:12 Uhr</span>
-										</span>
-									</span>
-								</a>
-							</li>
-							
-							<li>
-								<a href="#">
-									Alle Nachrichten anzeigen
-									<i class="icon-arrow-right"></i>
-								</a>
-							</li>									
-	
-						</ul>
-					</li>
-
-
-					<li class="user-profile">
-						<jdoc:include type="modules" name="login" /><!--.login-->
-					</li>
-
-
-
-
+				<jdoc:include type="modules" name="mytasks" /><!--.mytasks-->
+				<jdoc:include type="modules" name="clientactivities" /><!--.clientactivities-->
+				<jdoc:include type="modules" name="mymessages" /><!--.mymessages-->
+				<jdoc:include type="modules" name="login" /><!--.login-->
 			  </ul><!--/.ace-nav-->
 
 		   </div><!--/.container-fluid-->
