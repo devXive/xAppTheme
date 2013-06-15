@@ -23,14 +23,13 @@
 .gritter-item-wrapper.alert-inverse,
 .gritter-item-wrapper.alert-inverse h4,
 .gritter-close {
-	color: #efefef;
-	opacity: 1;
+	color: #454545;
+	opacity: 0.5;
 	font-weight: normal;
 	text-shadow: none;
 }
 
 .gritter-close:hover {
-	color: #e0e0e0;
 	opacity: 1;
 }
 
