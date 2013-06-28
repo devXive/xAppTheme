@@ -86,12 +86,14 @@ $templateHelper->addNewCssHead('file', 'ace-responsive.css', 'xapptheme');
 $templateHelper->addNewCssHead('file', 'skin5.css', 'xapptheme');
 $templateHelper->addNewCssHead('file', 'chosen.css', 'xapptheme');
 $templateHelper->addNewCssHead('file', '/devxive/jquery.gritter.bootstrap.css', 'xapptheme');
+$templateHelper->addNewCssHead('file', '/devxive/alertify.bootstrap.css', 'xapptheme');
 $templateHelper->addNewCssHead('file', 'custom.css', 'xapptheme');
 
 // Added template specific scripts
 $templateHelper->addNewJsBodyBottom('file', 'uncompressed/ace-elements.js', 'xapptheme', '1000');
 $templateHelper->addNewJsBodyBottom('file', 'uncompressed/ace.js', 'xapptheme', '1001');
 $templateHelper->addNewJsBodyBottom('file', 'devxive/template.js', 'xapptheme', '5000');
+$templateHelper->addNewJsBodyBottom('file', 'devxive/alertify.js', 'xapptheme', '5000');
 
 // Getting page class suffix and template path
 // $pageclass = $params->get('pageclass_sfx');
