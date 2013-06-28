@@ -94,9 +94,9 @@ require_once(__DIR__ . '/config.php');
 						<jdoc:include type="modules" name="breadcrumbs" /><!--.breadcrumb-->
 
 						<div id="nav-search">
-							<form class="form-search">
+							<form class="form-search" method="post">
 									<span class="input-icon">
-										<input autocomplete="off" id="nav-search-input" type="text" class="input-small search-query" placeholder="Suche ..." />
+										<input name="global_search" autocomplete="off" id="nav-search-input" type="text" class="input-small search-query" placeholder="Suche ..." />
 										<i id="nav-search-icon" class="icon-search"></i>
 									</span>
 							</form>
