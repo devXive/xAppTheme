@@ -1,3 +1,39 @@
+/* DataTables */
+.dataTables_processing {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 250px;
+	height: 30px;
+	margin-left: -125px;
+	padding: 14px 0 4px 0;
+	border: 1px solid #DDD;
+	text-align: center;
+	color: #999;
+	font-size: 14px;
+	background-color: #fff;
+	border-radius: 5px;
+}
+
+/* FIX TEMPORARY BIG WITH DISPLAY: INHERIT*/
+@media only screen and (max-width: 767px) {
+	.visible-phone {
+		 display: inline !important;
+	}
+}
+@media (min-width: 768px) and (max-width: 979px) {
+	.visible-tablet {
+		 display: inline !important;
+	}
+}
+@media only screen and (min-width: 980px) {
+	.visible-desktop {
+		display: inline !important;
+	}
+}
+
+
+
 /* set color of placeholders for better readability */
 input::-webkit-input-placeholder { color: #ddd; }
 input:-moz-input-placeholder { color: #ddd; }
@@ -45,7 +81,7 @@ input:input-placeholder { color: #ddd; }
 }
 
 /* jquery data-table report specifics */
-#table_report td {
+.dataTable td {
 	vertical-align: middle;
 }
 
