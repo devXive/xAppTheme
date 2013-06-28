@@ -129,27 +129,60 @@ $templateHelper->addNewJsBodyBottom('file', 'jquery.autosize-min.js', 'xapptheme
 $templateHelper->addNewJsBodyBottom('file', 'jquery.inputlimiter.1.3.1.min.js', 'xapptheme', '1006');
 $templateHelper->addNewJsBodyBottom('file', '/devxive/jquery.gritter.bootstrap.js', 'xapptheme', '1007');
 $templateHelper->addNewJsBodyBottom('file', 'jquery.timeago.js', 'xapptheme', '1008');
+$templateHelper->addNewJsBodyBottom('file', '/devxive/jquery-ui-effects.js', 'xapptheme', '1009');
 
 $componentCustomScript = '
-	jQuery(function() {
-		var oTable1 = $(\'#table_report\').dataTable( {
-			"aoColumns": [
-				{ "bSortable": false },
-				null, null, null, null, null, null,
-				{ "bSortable": false }
+//	jQuery(function() {
+//		var oTable1 = $(\'#table_report\').dataTable( {
+//			"aoColumns": [
+//				{ "bSortable": false },
+//				null, null, null, null, null, null,
+//				{ "bSortable": false }
+//			]
+//		});
+//
+//		$(\'table th input:checkbox\').on(\'click\' , function(){
+//			var that = this;
+//			$(this).closest(\'table\').find(\'tr > td:first-child input:checkbox\')
+//				.each(function(){
+//					this.checked = that.checked;
+//					$(this).closest(\'tr\').toggleClass(\'selected\');
+//				});
+//		
+//		});
+//	});
+
+	jQuery(document).ready(function() {
+		$("#contact_table_results").dataTable( {
+			"bProcessing": true,
+			"bPaginate": false,
+			"aoColumnDefs": [
+				{ "bSortable": false, "aTargets": [0] },
+				{ "bSortable": false, "aTargets": [7] },
+				{ "bSearchable": false, "aTargets": [0] },
+				{ "bSearchable": false, "aTargets": [6] },
+				{ "bSearchable": false, "aTargets": [7] }
 			]
 		});
-
-		$(\'table th input:checkbox\').on(\'click\' , function(){
-			var that = this;
-			$(this).closest(\'table\').find(\'tr > td:first-child input:checkbox\')
-				.each(function(){
-					this.checked = that.checked;
-					$(this).closest(\'tr\').toggleClass(\'selected\');
-				});
-		
-		});
 	});
+
+//	jQuery(document).ready(function() {
+//		$("#table_test").dataTable( {
+//			"bProcessing": true,
+//			"bServerSide": true,
+//			"bStateSave": true, // save the state of the table (i.e. you are on page 15, the icookieduration save this for 15 minutes)
+//			"iCookieDuration": 60*15, // Used to save the state for 15 minutes (default 2 hours)
+//			"sAjaxSource": "index.php?option=com_xiveirm&task=api.getlist&' . JFactory::getSession()->get('session.token') . '=1",
+//			"aoColumns": [
+//				{ "sTitle": "ID", "mData": "id" },
+//				{ "sTitle": "Last Name", "mData": "last_name" },
+//				{ "sTitle": "First Name", "mData": "first_name" },
+//				{ "sTitle": "Gender", "mData": "gender" },
+//				{ "sTitle": "Phone", "mData": "phone" },
+//				{ "sTitle": "Remarks", "mData": "remarks" }
+//			]
+//		});
+//	});
 
 	jQuery(\'[data-rel=tooltip]\').tooltip();
 
