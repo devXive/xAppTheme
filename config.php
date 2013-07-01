@@ -126,6 +126,16 @@ $templateHelper->addNewJsBodyBottom('file', '/devxive/jquery.gritter.bootstrap.j
 $templateHelper->addNewJsBodyBottom('file', 'jquery.timeago.js', 'xapptheme', '1008');
 $templateHelper->addNewJsBodyBottom('file', '/devxive/jquery-ui-effects.js', 'xapptheme', '1009');
 
+
+
+
+$doc->addScript('/templates/' . $this->template . '/assets/js/devxive/template.js');
+
+
+
+
+
+
 $componentCustomScript = '
 	jQuery(\'[data-rel=tooltip]\').tooltip();
 
@@ -159,12 +169,6 @@ $componentCustomScript = '
 	// TimeAgoScript
 	jQuery("abbr.timeago").timeago();
 
-	// Fix Dropdown input problem
-	jQuery(function() {
-		$(".dropdown-menu input, .dropdown-menu label").click(function(e) {
-			e.stopPropagation();
-		});
-	});
 ';
 
 $templateHelper->addNewJsBodyBottom('custom', $componentCustomScript, 'xapptheme', '2000');
@@ -182,7 +186,5 @@ unset($head['/media/jui/js/bootstrap.min.js']);
 
 // print_r(JFactory::getDocument()->getHeadData());
 // print_r($head);
-
-
 
 ?>
