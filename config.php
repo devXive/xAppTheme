@@ -120,8 +120,6 @@ else
  * used in /components/com_xiveirm/views/irmmasterdatas/tmpl/default.php
  */
 $templateHelper->addNewJsBodyBottom('file', 'chosen.jquery.min.js', 'xapptheme', '1004');
-$templateHelper->addNewJsBodyBottom('file', 'jquery.autosize-min.js', 'xapptheme', '1005');
-$templateHelper->addNewJsBodyBottom('file', 'jquery.inputlimiter.1.3.1.min.js', 'xapptheme', '1006');
 $templateHelper->addNewJsBodyBottom('file', '/devxive/jquery.gritter.bootstrap.js', 'xapptheme', '1007');
 $templateHelper->addNewJsBodyBottom('file', 'jquery.timeago.js', 'xapptheme', '1008');
 $templateHelper->addNewJsBodyBottom('file', '/devxive/jquery-ui-effects.js', 'xapptheme', '1009');
@@ -146,16 +144,6 @@ $componentCustomScript = '
 
 	jQuery(".ace-popover").popover();
 			
-	jQuery("textarea[class*=autosize]").autosize({append: "\n"});
-	jQuery("textarea[class*=limited]").each(function() {
-		var limit = parseInt($(this).attr("data-maxlength")) || 100;
-		$(this).inputlimiter({
-			"limit": limit,
-			remText: "%n character%s remaining...",
-			limitText: "max allowed : %n."
-		});
-	});
-
 	jQuery("#loading-btn").on("click", function () {
 		$("#loading-btn").addClass("btn-warning");
 		var btn = $(this);
