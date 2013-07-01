@@ -135,15 +135,9 @@ $doc->addScript('/templates/' . $this->template . '/assets/js/devxive/template.j
 
 
 $componentCustomScript = '
-	jQuery(\'[data-rel=tooltip]\').tooltip();
-
 	jQuery(".chzn-select").chosen();
 	jQuery(".chzn-select-deselect").chosen({allow_single_deselect:true});
 
-	jQuery(".ace-tooltip").tooltip();
-
-	jQuery(".ace-popover").popover();
-			
 	jQuery("#loading-btn").on("click", function () {
 		$("#loading-btn").addClass("btn-warning");
 		var btn = $(this);
