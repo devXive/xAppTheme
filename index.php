@@ -178,6 +178,6 @@ require_once(__DIR__ . '/config.php');
 		<jdoc:include type="modules" name="debug" style="none" />
 	</div>
 
-	<?php $templateHelper->loadJsBodyBottom(); ?>
+	<?php // $templateHelper->loadJsBodyBottom(); ?>
 </body>
 </html>

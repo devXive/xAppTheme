@@ -51,20 +51,20 @@ $doc = JFactory::getDocument();
  */
 $user = JFactory::getUser();
 
+// Import HTML and Helper Classes
+nimport('NHtml.JavaScript');
+NHtmlJavaScript::setSiteReadyOverlay();
 
 /**
  * Load framework dependencies
  */
-nawala_import('helper.ntemplatehelper', 'once');
-$templateHelper = new NTemplateHelper();
+nimport('NHelper.Template', false);
+$templateHelper = new NHelperTemplate();
 
 // Load framework without jQuery.noConflict();
 $templateHelper->loadFramework('nawala', false);
 
 // $templateHelper->addNewJsHead();
-
-// load only as fallback if jquery can't be load from a CDN!!
-// $templateHelper->addNewJsBodyBottom('custom', 'window.jQuery || document.write("<script src="assets/js/jquery.min.js">\x3C/script>")', 'xapptheme', '4');
 
 $templateHelper->addNewCssHead('file', 'bootstrap.min.css', 'framework');
 $templateHelper->addNewCssHead('file', 'bootstrap-responsive.min.css', 'framework');
@@ -122,8 +122,8 @@ else
 /**
  * used in /components/com_xiveirm/views/irmmasterdatas/tmpl/default.php
  */
-$templateHelper->addNewJsBodyBottom('file', 'jquery.dataTables.min.js', 'xapptheme', '1002');
-$templateHelper->addNewJsBodyBottom('file', 'jquery.dataTables.bootstrap.js', 'xapptheme', '1003');
+// $templateHelper->addNewJsBodyBottom('file', 'jquery.dataTables.min.js', 'xapptheme', '1002');
+// $templateHelper->addNewJsBodyBottom('file', 'jquery.dataTables.bootstrap.js', 'xapptheme', '1003');
 $templateHelper->addNewJsBodyBottom('file', 'chosen.jquery.min.js', 'xapptheme', '1004');
 $templateHelper->addNewJsBodyBottom('file', 'jquery.autosize-min.js', 'xapptheme', '1005');
 $templateHelper->addNewJsBodyBottom('file', 'jquery.inputlimiter.1.3.1.min.js', 'xapptheme', '1006');
@@ -133,7 +133,7 @@ $templateHelper->addNewJsBodyBottom('file', '/devxive/jquery-ui-effects.js', 'xa
 
 $componentCustomScript = '
 //	jQuery(function() {
-//		var oTable1 = $(\'#table_report\').dataTable( {
+//		var oTable1 = $("#table_contacts").dataTable( {
 //			"aoColumns": [
 //				{ "bSortable": false },
 //				null, null, null, null, null, null,
@@ -152,20 +152,6 @@ $componentCustomScript = '
 //		});
 //	});
 
-	jQuery(document).ready(function() {
-		$("#contact_table_results").dataTable( {
-			"bProcessing": true,
-			"bPaginate": false,
-			"aoColumnDefs": [
-				{ "bSortable": false, "aTargets": [0] },
-				{ "bSortable": false, "aTargets": [7] },
-				{ "bSearchable": false, "aTargets": [0] },
-				{ "bSearchable": false, "aTargets": [6] },
-				{ "bSearchable": false, "aTargets": [7] }
-			]
-		});
-	});
-
 //	jQuery(document).ready(function() {
 //		$("#table_test").dataTable( {
 //			"bProcessing": true,
@@ -183,6 +169,8 @@ $componentCustomScript = '
 //			]
 //		});
 //	});
+
+
 
 	jQuery(\'[data-rel=tooltip]\').tooltip();
 
@@ -225,6 +213,20 @@ $componentCustomScript = '
 ';
 
 $templateHelper->addNewJsBodyBottom('custom', $componentCustomScript, 'xapptheme', '2000');
+
+
+// STRIP OUT JUI HEAD DATA
+
+JHtml::_('bootstrap.framework');
+$doc = JFactory::getDocument();
+$headData = $doc->getHeadData();
+$head = (array) $headData['scripts'];
+unset($head['/media/jui/js/jquery.min.js']);
+unset($head['/media/jui/js/jquery-noconflict.js']);
+unset($head['/media/jui/js/bootstrap.min.js']);
+
+// print_r(JFactory::getDocument()->getHeadData());
+// print_r($head);
 
 
 
