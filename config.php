@@ -81,16 +81,12 @@ $templateHelper->forceIeChromeFrame();
 $templateHelper->addNewCssHead('file', 'ace.css', 'xapptheme');
 $templateHelper->addNewCssHead('file', 'ace-responsive.css', 'xapptheme');
 $templateHelper->addNewCssHead('file', 'skin5.css', 'xapptheme');
-$templateHelper->addNewCssHead('file', 'chosen.css', 'xapptheme');
-$templateHelper->addNewCssHead('file', '/devxive/jquery.gritter.bootstrap.css', 'xapptheme');
-$templateHelper->addNewCssHead('file', '/devxive/alertify.bootstrap.css', 'xapptheme');
 $templateHelper->addNewCssHead('file', 'custom.css', 'xapptheme');
 
 // Added template specific scripts
 $templateHelper->addNewJsBodyBottom('file', 'uncompressed/ace-elements.js', 'xapptheme', '1000');
 $templateHelper->addNewJsBodyBottom('file', 'uncompressed/ace.js', 'xapptheme', '1001');
 $templateHelper->addNewJsBodyBottom('file', 'devxive/template.js', 'xapptheme', '5000');
-$templateHelper->addNewJsBodyBottom('file', 'devxive/alertify.js', 'xapptheme', '5000');
 
 // Getting page class suffix and template path
 // $pageclass = $params->get('pageclass_sfx');
@@ -122,11 +118,12 @@ else
 $templateHelper->addNewJsBodyBottom('file', 'chosen.jquery.min.js', 'xapptheme', '1004');
 $templateHelper->addNewJsBodyBottom('file', '/devxive/jquery.gritter.bootstrap.js', 'xapptheme', '1007');
 $templateHelper->addNewJsBodyBottom('file', 'jquery.timeago.js', 'xapptheme', '1008');
-$templateHelper->addNewJsBodyBottom('file', '/devxive/jquery-ui-effects.js', 'xapptheme', '1009');
 
 
 
 
+$doc->addScript('/templates/' . $this->template . '/assets/js/uncompressed/ace.js');
+$doc->addScript('/templates/' . $this->template . '/assets/js/uncompressed/ace-elements.js');
 $doc->addScript('/templates/' . $this->template . '/assets/js/devxive/template.js');
 
 
@@ -137,16 +134,6 @@ $doc->addScript('/templates/' . $this->template . '/assets/js/devxive/template.j
 $componentCustomScript = '
 	jQuery(".chzn-select").chosen();
 	jQuery(".chzn-select-deselect").chosen({allow_single_deselect:true});
-
-	jQuery("#loading-btn").on("click", function () {
-		$("#loading-btn").addClass("btn-warning");
-		var btn = $(this);
-		btn.button("loading")
-		setTimeout(function () {
-			$("#loading-btn").removeClass("btn-warning"),
-			btn.button("reset")
-		}, 5000)
-	});
 
 	// TimeAgoScript
 	jQuery("abbr.timeago").timeago();
