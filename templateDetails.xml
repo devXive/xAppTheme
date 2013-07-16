@@ -29,14 +29,12 @@
 		<position>mytasks</position>
 		<position>clientactivity</position>
 		<position>mymessages</position>
-		<position>position-4</position>
+		<position>search</position>
 		<position>position-5</position>
-		<position>position-6</position>
-		<position>position-7</position>
-		<position>position-8</position>
-		<position>position-9</position>
-		<position>position-10</position>
-		<position>position-11</position>
+		<position>dashboard-top</position>
+		<position>dashboard-left</position>
+		<position>dashboard-right</position>
+		<position>dashboard-bottom</position>
 		<position>position-12</position>
 		<position>position-13</position>
 		<position>footer</position>
