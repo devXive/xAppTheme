@@ -25,8 +25,8 @@ JHtml::_('behavior.keepalive');
 		<i class="icon-caret-down"></i>
 	</a>
 	<ul id="user_menu" class="pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-closer">
-		<li><a href="<?php echo JRoute::_('index.php?option=com_contact', true, $params->get('usesecure')); ?>"><i class="icon-cog"></i> Einstellungen</a></li>
-		<li><a href="<?php echo JRoute::_('index.php?option=com_users', true, $params->get('usesecure')); ?>"><i class="icon-user"></i> Profil</a></li>
+		<li><a href="<?php echo JRoute::_('#', true, $params->get('usesecure')); ?>"><i class="icon-cog"></i> <?php echo JText::_('TPL_XAPPTHEME_SETTINGS'); ?></a></li>
+		<li><a href="<?php echo JRoute::_('index.php?option=com_users&view=profile', true, $params->get('usesecure')); ?>"><i class="icon-user"></i> <?php echo JText::_('TPL_XAPPTHEME_EDIT_PROFILE'); ?></a></li>
 		<li class="divider"></li>
 		<li>
 			<a href="javascript:document.getElementById('form-logout').submit()"><i class="icon-off"></i> <?php echo JText::_('JLOGOUT'); ?></a>
