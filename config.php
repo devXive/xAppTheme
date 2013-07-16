@@ -132,9 +132,6 @@ $doc->addScript('/templates/' . $this->template . '/assets/js/devxive/template.j
 
 
 $componentCustomScript = '
-	jQuery(".chzn-select").chosen();
-	jQuery(".chzn-select-deselect").chosen({allow_single_deselect:true});
-
 	// TimeAgoScript
 	jQuery("abbr.timeago").timeago();
 
