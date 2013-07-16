@@ -15,6 +15,54 @@
 	border-radius: 5px;
 }
 
+.table-header {
+	padding: 10px 10px 8px 10px;
+	font-size: inherit;
+	line-height: inherit;
+	background-color: #222A2D;
+}
+.table-header form {
+	margin: 0;
+}
+.table-header span.input-icon {
+	width: 100%;
+}
+.table-header .btn-group span a.btn{
+	border: 1px solid #222A2D;
+	line-height: 26px;
+}
+
+.dataTable tbody tr td i {
+	width: 10px;
+	display: inline-table;
+}
+
+/* DataTables details table */
+div.innerDetails {
+	display: none;
+}
+
+table td.details {
+	padding: 0;
+}
+table td.details .table {
+	margin: 0;
+	padding: 0;
+	border-bottom: 5px solid #E7E7E7;
+}
+table td.details .table tr td:first-child {
+	border-left: 5px solid #E7E7E7;
+}
+table td.details .table td {
+	padding: 5px;
+}
+
+table td.details .table-divider {
+	background-color: #E7E7E7 !important;
+	width: 5px;
+	padding: 0 !important;
+}
+
 /* FIX TEMPORARY BIG WITH DISPLAY: INHERIT*/
 @media only screen and (max-width: 767px) {
 	.visible-phone {
@@ -88,5 +136,138 @@ input:input-placeholder { color: #ddd; }
 
 
 
-/* PROJECTFORK SUPPORT */
-#projectfork .thumbnail {min-width: 98px;}
+/* General alignment */
+.no-margin-left {
+	margin-left: 0 !important;
+}
+.no-margin-right {
+	margin-right: 0 !important;
+}
+.no-margin-top {
+	margin-top: 0 !important;
+}
+.no-margin-bottom {
+	margin-bottom: 0 !important;
+}
+.no-margin {
+	margin: 0 !important;
+}
+
+.small-margin-left {
+	margin-left: 5px;
+}
+.small-margin-right {
+	margin-right: 5px;
+}
+.small-margin-top {
+	margin-top: 5px;
+}
+.small-margin-bottom {
+	margin-bottom: 5px;
+}
+.small-margin {
+	margin: 5px;
+}
+
+.margin-left {
+	margin-left: 10px;
+}
+.margin-right {
+	margin-right: 10px;
+}
+.margin-top {
+	margin-top: 10px;
+}
+.margin-bottom {
+	margin-bottom: 10px;
+}
+.margin {
+	margin: 10px;
+}
+
+.large-margin-left {
+	margin-left: 15px;
+}
+.large-margin-right {
+	margin-right: 15px;
+}
+.large-margin-top {
+	margin-top: 15px;
+}
+.large-margin-bottom {
+	margin-bottom: 15px;
+}
+.large-margin {
+	margin: 15px;
+}
+
+.no-padding-left {
+	padding-left: 0 !important;
+}
+.no-padding-right {
+	padding-right: 0 !important;
+}
+.no-padding-top {
+	padding-top: 0 !important;
+}
+.no-padding-bottom {
+	padding-bottom: 0 !important;
+}
+.no-padding {
+	padding: 0 !important;
+}
+
+.small-padding-left {
+	padding-left: 5px;
+}
+.small-padding-right {
+	padding-right: 5px;
+}
+.small-padding-top {
+	padding-top: 5px;
+}
+.small-padding-bottom {
+	padding-bottom: 5px;
+}
+.small-padding {
+	padding: 5px;
+}
+
+.padding-left {
+	padding-left: 10px;
+}
+.padding-right {
+	padding-right: 10px;
+}
+.padding-top {
+	padding-top: 10px;
+}
+.padding-bottom {
+	padding-bottom: 10px;
+}
+.padding {
+	padding: 10px;
+}
+
+.large-padding-left {
+	padding-left: 15px;
+}
+.large-padding-right {
+	padding-right: 15px;
+}
+.large-padding-top {
+	padding-top: 15px;
+}
+.large-padding-bottom {
+	padding-bottom: 15px;
+}
+.large-padding {
+	padding: 15px;
+}
+
+
+
+/* bootstrap overrides unproofed */
+.tooltip.top {
+	margin: -8px;
+}
