@@ -269,8 +269,6 @@ else
 			</div>
 		</div><!--/.fluid-container-->
 
-		<?php $templateHelper->loadJsBodyBottom(); ?>
-
 		<script type="text/javascript">
 				function show_box(id) {
 					jQuery('.widget-box.visible').removeClass('visible');
