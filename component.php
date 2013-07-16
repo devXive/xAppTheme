@@ -15,18 +15,38 @@ $this->language = $doc->language;
 $this->direction = $doc->direction;
 
 // Add JavaScript Frameworks
-// JHtml::_('bootstrap.framework');
+JHtml::_('bootstrap.framework');
 
 // Add Stylesheets
-$doc->addStyleSheet('templates/'.$this->template.'/assets/css/bootstrap.min.css');
-$doc->addStyleSheet('templates/'.$this->template.'/assets/css/bootstrap-responsive.min.css');
-$doc->addStyleSheet('templates/'.$this->template.'/assets/css/font-awesome.min.css');
-$doc->addStyleSheet('templates/'.$this->template.'/assets/css/ace.min.css');
-$doc->addStyleSheet('templates/'.$this->template.'/assets/css/ace-responsive.min.css');
-$doc->addStyleSheet('templates/'.$this->template.'/assets/css/ace-skins.min.css');
+$doc->addStyleSheet('media/nawala/css/bootstrap.min.css');
+$doc->addStyleSheet('media/nawala/css/bootstrap-responsive.min.css');
 
 // Load optional rtl Bootstrap css and Bootstrap bugfixes
 JHtmlBootstrap::loadCss($includeMaincss = false, $this->direction);
+
+/**
+ * Load framework dependencies
+ */
+nimport('NHelper.Template', false);
+$templateHelper = new NHelperTemplate();
+
+$templateHelper->addNewCssHead('file', 'font-awesome.css', 'framework');
+$templateHelper->addNewCssHead('file', 'nfw-icon-animation.css', 'framework');
+
+/**
+ * Load and perform template based settings
+ */
+$templateHelper->removeGenerator();
+$templateHelper->forceIeChromeFrame();
+
+// Added template specific styles
+$templateHelper->addNewCssHead('file', 'ace.css', 'xapptheme');
+$templateHelper->addNewCssHead('file', 'ace-responsive.css', 'xapptheme');
+$templateHelper->addNewCssHead('file', 'skin5.css', 'xapptheme');
+$templateHelper->addNewCssHead('file', 'custom.css', 'xapptheme');
+
+
+
 
 ?>
 <!DOCTYPE html>
@@ -41,8 +61,12 @@ JHtmlBootstrap::loadCss($includeMaincss = false, $this->direction);
 	<script src="<?php echo $this->baseurl; ?>/media/jui/js/html5.js"></script>
 <![endif]-->
 </head>
-<body class="contentpane modal">
-	<jdoc:include type="message" />
-	<jdoc:include type="component" />
+<body>
+<div class="container-fluid large-padding">
+	<div class="row-fluid">
+		<jdoc:include type="message" />
+		<jdoc:include type="component" />
+	</div>
+</div>
 </body>
 </html>
