@@ -28,10 +28,10 @@ $app = JFactory::getApplication();
 $limit = $app->getUserStateFromRequest('com_search.limit', 'limit', $app->getCfg('list_limit'), 'int');
 
 ?>
-<form name="rokajaxsearch" id="rokajaxsearch" class="<?php echo $theme; ?>" action="<?php echo JURI::Base()?>" method="get">
+<form name="rokajaxsearch" id="rokajaxsearch" class="<?php echo $theme; ?> form-search" action="<?php echo JURI::Base()?>" method="get">
 <div class="rokajaxsearch <?php echo $params->get('moduleclass_sfx'); ?>">
-	<div class="roksearch-wrapper">
-		<input id="roksearch_search_str" name="searchword" type="text" class="inputbox" value="<?php echo JText::_('SEARCH'); ?>" />
+	<div class="form-search">
+		<input id="roksearch_search_str" name="searchword" type="text" class="nav-search-input input-small search-query" value="<?php echo JText::_('SEARCH'); ?>" />
 	</div>
 	<input type="hidden" name="searchphrase" value="<?php echo $params->get("searchphrase")?>"/>
 	<input type="hidden" name="limit" value="<?php echo $limit; ?>" />
