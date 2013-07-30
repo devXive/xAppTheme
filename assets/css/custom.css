@@ -63,6 +63,13 @@ table td.details .table-divider {
 	padding: 0 !important;
 }
 
+.dataTable td.group {
+	background-color: #ccc !important;
+	font-weight: 700;
+	font-size: 14px;
+	text-align: center;
+}
+
 /* FIX TEMPORARY BIG WITH DISPLAY: INHERIT*/
 @media only screen and (max-width: 767px) {
 	.visible-phone {
