@@ -13,9 +13,9 @@ Desktop.ini
 $RECYCLE.BIN/
 
 # Transifex Client
-tx.exe
-txupdate.bat
-txpush.bat
+# tx.exe
+# txupdate.bat
+# txpush.bat
 
 #############
 ## Mac detritus
